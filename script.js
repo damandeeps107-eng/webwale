@@ -274,16 +274,17 @@ document.addEventListener("DOMContentLoaded", () => {
   // Start the single continuous rAF loop
   requestAnimationFrame(tick);
 
-  /* ── 5. SECTION BACKGROUND COLOR MORPH ──────────────────── */
-  const sections = document.querySelectorAll("[data-section-bg]");
+  /* ── 5. SEAMLESS EDITORIAL BACKGROUND COLOR MORPH (MOSSIMO STUDIO FLUID MORPH) ── */
+  const colorMorphElements = document.querySelectorAll("[data-section-bg], [data-bg-color]");
 
-  sections.forEach((sec) => {
-    const bgColor = sec.getAttribute("data-section-bg");
+  colorMorphElements.forEach((el) => {
+    const bgColor = el.getAttribute("data-section-bg") || el.getAttribute("data-bg-color");
+    if (!bgColor) return;
 
     ScrollTrigger.create({
-      trigger: sec,
-      start: "top 65%",
-      end: "bottom 35%",
+      trigger: el,
+      start: "top 62%",
+      end: "bottom 38%",
       onEnter: () => {
         document.body.style.backgroundColor = bgColor;
       },
@@ -973,5 +974,71 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.openModal("serviceDetailModal");
   };
+
+  /* ── 14. APPLE LIQUID GLASS TILT, SPECULAR SHEEN & HAPTIC RIPPLE ── */
+  const liquidCards = document.querySelectorAll(
+    ".portfolio-card, .testimonial-card, .pricing-card, .svc-col, .preview-frame"
+  );
+
+  liquidCards.forEach((card) => {
+    let bounds = null;
+
+    function getBounds() {
+      bounds = card.getBoundingClientRect();
+    }
+
+    card.addEventListener("mouseenter", () => {
+      getBounds();
+      card.style.transition = "transform 0.08s ease-out, box-shadow 0.3s ease";
+    });
+
+    card.addEventListener("mousemove", (e) => {
+      if (!bounds) getBounds();
+      const mouseX = e.clientX - bounds.left;
+      const mouseY = e.clientY - bounds.top;
+
+      card.style.setProperty("--liquid-x", `${mouseX}px`);
+      card.style.setProperty("--liquid-y", `${mouseY}px`);
+
+      const centerX = bounds.width / 2;
+      const centerY = bounds.height / 2;
+      const deltaX = (mouseX - centerX) / (centerX || 1);
+      const deltaY = (mouseY - centerY) / (centerY || 1);
+      const angle = Math.atan2(mouseY - centerY, mouseX - centerX) * (180 / Math.PI) + 90;
+      card.style.setProperty("--liquid-angle", `${angle}deg`);
+
+      // Apple-style subtle 3D liquid tilt with smooth spring feel
+      const tiltX = -deltaY * 5;
+      const tiltY = deltaX * 5;
+      card.style.transform = `perspective(1000px) rotateX(${tiltX.toFixed(2)}deg) rotateY(${tiltY.toFixed(2)}deg) translateY(-8px) scale3d(1.018, 1.018, 1.018)`;
+    });
+
+    card.addEventListener("mouseleave", () => {
+      bounds = null;
+      card.style.transition = "transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease";
+      card.style.transform = "";
+      setTimeout(() => {
+        card.style.transition = "";
+      }, 650);
+    });
+
+    // Tactile Apple Liquid Click Ripple Wave
+    card.addEventListener("click", (e) => {
+      getBounds();
+      const clickX = e.clientX - bounds.left;
+      const clickY = e.clientY - bounds.top;
+
+      const ripple = document.createElement("span");
+      ripple.className = "liquid-ripple-effect";
+      ripple.style.left = `${clickX}px`;
+      ripple.style.top = `${clickY}px`;
+      card.appendChild(ripple);
+
+      setTimeout(() => {
+        ripple.remove();
+      }, 750);
+    });
+  });
 });
+
 
