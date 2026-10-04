@@ -41,6 +41,7 @@
       <a href="#services">Services</a>
       <a href="#" onclick="openModal('faqModal'); return false;">How it works ↗</a>
       <a href="#" onclick="openModal('aboutModal'); return false;">About ↗</a>
+      <a href="#testimonials">Reviews</a>
       <a href="#contact">Contact</a>
     </div>
     <a href="#contact" class="nav-cta-btn">Start a Project</a>
@@ -82,19 +83,18 @@
     <!-- Centered text block (z-index ABOVE the cards, pointer-events none except the button) -->
     <div class="hero-center" id="heroCenter">
       <h1 class="hero-headline">
-        <span class="hh-line"><em>Beautiful</em> websites for</span>
-        <span class="hh-line">businesses that refuse to</span>
-        <span class="hh-line"><em>blend in.</em></span>
+        <span class="hh-line">Websites built for</span>
+        <span class="hh-line">businesses that <em>want to grow.</em></span>
       </h1>
       <p class="hero-sub">
-        We turn your brand into a digital experience people notice, remember, and want to come back to.
+        We design and develop modern, fast and business-focused websites that help businesses build trust, showcase their work and generate enquiries.
       </p>
       <div class="hero-ctas">
-        <a href="#work" class="btn-work">SEE THE WORK</a>
+        <a href="#work" class="btn-work">View Our Work</a>
+        <a href="#contact" class="btn-hero-sec">Start Your Project</a>
       </div>
     </div>
-
-    <div class="hero-hint" id="heroHint">
+    <div class="hero-hint"  id="heroHint">
       <div class="hint-line"></div>
       <span>scroll down</span>
     </div>
@@ -108,148 +108,254 @@
     <div class="section-container">
       <div class="work-header-wrap">
         <div class="sec-label">SELECTED WORK</div>
-        <h2 class="work-section-title">Crafted with precision.<br /><em>Engineered for real results.</em></h2>
-        <p class="work-section-sub">Click any project to inspect the full case study, tech stack, and live performance metrics.</p>
+        <h2 class="work-section-title">Selected Work</h2>
+        <p class="work-section-sub">Real websites and digital experiences built for real businesses.</p>
       </div>
 
-      
-      
+      <!-- Portfolio Category Filter Tabs -->
+      <div class="portfolio-filters-wrap">
+        <div class="portfolio-filters" id="portfolioFilters">
+          <button class="p-filter-btn active" data-filter="all">All</button>
+          <button class="p-filter-btn" data-filter="business">Business</button>
+          <button class="p-filter-btn" data-filter="real-estate">Real Estate</button>
+          <button class="p-filter-btn" data-filter="ecommerce">E-commerce</button>
+          <button class="p-filter-btn" data-filter="restaurant">Restaurant</button>
+          <button class="p-filter-btn" data-filter="healthcare">Healthcare</button>
+          <button class="p-filter-btn" data-filter="salon">Salon</button>
+          <button class="p-filter-btn" data-filter="other">Other</button>
+        </div>
+      </div>
+
       <!-- Modern Glassmorphism Portfolio Cards Grid -->
       <div class="portfolio-grid">
 
-        <!-- Card 0: Maison Léona (Swimwear & Beach Fashion) -->
-        <div class="portfolio-card" onclick="openProjectModal(0)" data-project="0">
+        <!-- Card 0: E-commerce (Aurora Collection) -->
+        <div class="portfolio-card" onclick="openProjectModal(0)" data-project="0" data-category="ecommerce">
           <div class="pc-image-wrap">
-            <img src="assets/orbit/aurora.jpg" alt="Maison Léona Swimwear" loading="lazy" />
-            <div class="pc-badge">+310% SALES</div>
+            <img src="assets/orbit/aurora.jpg" alt="Aurora Collection" loading="lazy" />
+            <div class="pc-badge">E-COMMERCE</div>
             <div class="pc-overlay">
               <span>EXPLORE CASE STUDY ↗</span>
             </div>
           </div>
           <div class="pc-content">
             <div class="pc-meta">
-              <span class="pc-tag">HAUTE COUTURE &amp; SWIMWEAR</span>
+              <span class="pc-tag">E-COMMERCE</span>
               <span class="pc-year">2026</span>
             </div>
-            <h3 class="pc-title">Maison Léona — Beachwear &amp; Swimwear</h3>
-            <p class="pc-desc">Editorial beachwear &amp; luxury swimwear e-commerce platform with high-conversion lookbook &amp; sub-second checkout.</p>
+            <h3 class="pc-title">Aurora Collection</h3>
+            <p class="pc-desc">High-fashion beachwear &amp; luxury swimwear online storefront with seamless mobile experience and rapid checkout.</p>
+            <div class="pc-built-with">
+              <span class="pc-feat-pill">Next.js</span>
+              <span class="pc-feat-pill">Headless Store</span>
+              <span class="pc-feat-pill">Interactive Lookbook</span>
+              <span class="pc-feat-pill">Fast Checkout</span>
+            </div>
             <div class="pc-action">
-              <span>VIEW FULL CASE STUDY</span>
+              <span>View Live Website →</span>
               <span class="pc-arrow">↗</span>
             </div>
           </div>
         </div>
 
-        <!-- Card 1: L Horizon (Fine Dining) -->
-        <div class="portfolio-card" onclick="openProjectModal(1)" data-project="1">
+        <!-- Card 1: Real Estate (The MARQ by Atlantis) -->
+        <div class="portfolio-card" onclick="openProjectModal(1)" data-project="1" data-category="real-estate">
           <div class="pc-image-wrap">
-            <img src="assets/card2.jpg" alt="L Horizon Fine Dining" loading="lazy" />
-            <div class="pc-badge">+340% BOOKINGS</div>
+            <img src="assets/card1.jpg" alt="The MARQ by Atlantis" loading="lazy" />
+            <div class="pc-badge">REAL ESTATE</div>
             <div class="pc-overlay">
               <span>EXPLORE CASE STUDY ↗</span>
             </div>
           </div>
           <div class="pc-content">
             <div class="pc-meta">
-              <span class="pc-tag">FINE DINING &amp; LOUNGE</span>
+              <span class="pc-tag">REAL ESTATE</span>
               <span class="pc-year">2026</span>
             </div>
-            <h3 class="pc-title">L'Horizon — Fine Dining &amp; Coastal Lounge</h3>
-            <p class="pc-desc">High-end reservation engine &amp; interactive dining menu experience built for luxury table bookings.</p>
+            <h3 class="pc-title">The MARQ by Atlantis</h3>
+            <p class="pc-desc">Commercial &amp; luxury high-rise development showcase for Block B, Aerocity, Mohali.</p>
+            <div class="pc-built-with">
+              <span class="pc-feat-pill">Development Portal</span>
+              <span class="pc-feat-pill">Architectural Showcase</span>
+              <span class="pc-feat-pill">Location Plan</span>
+              <span class="pc-feat-pill">Direct Inquiries</span>
+            </div>
             <div class="pc-action">
-              <span>VIEW FULL CASE STUDY</span>
+              <span>View Live Website →</span>
               <span class="pc-arrow">↗</span>
             </div>
           </div>
         </div>
 
-        <!-- Card 2: The MARQ (Luxury Real Estate) -->
-        <div class="portfolio-card" onclick="openProjectModal(2)" data-project="2">
+        <!-- Card 2: Restaurant (Da Maria) -->
+        <div class="portfolio-card" onclick="openProjectModal(2)" data-project="2" data-category="restaurant">
           <div class="pc-image-wrap">
-            <img src="assets/card1.jpg" alt="The MARQ Real Estate" loading="lazy" />
-            <div class="pc-badge">+480% INQUIRIES</div>
+            <img src="assets/orbit/da-maria.jpg" alt="Da Maria" loading="lazy" />
+            <div class="pc-badge">RESTAURANT</div>
             <div class="pc-overlay">
               <span>EXPLORE CASE STUDY ↗</span>
             </div>
           </div>
           <div class="pc-content">
             <div class="pc-meta">
-              <span class="pc-tag">REAL ESTATE &amp; REALTOR</span>
+              <span class="pc-tag">RESTAURANT</span>
               <span class="pc-year">2026</span>
             </div>
-            <h3 class="pc-title">The MARQ — Luxury Penthouse Realty</h3>
-            <p class="pc-desc">High-rise estate platform featuring private VIP viewing scheduler and instant broker contact.</p>
+            <h3 class="pc-title">Da Maria</h3>
+            <p class="pc-desc">Coastal Italian dining platform with an integrated table reservation engine and seasonal culinary menu.</p>
+            <div class="pc-built-with">
+              <span class="pc-feat-pill">Table Booking</span>
+              <span class="pc-feat-pill">Digital Menu</span>
+              <span class="pc-feat-pill">Mobile-First</span>
+              <span class="pc-feat-pill">Local SEO</span>
+            </div>
             <div class="pc-action">
-              <span>VIEW FULL CASE STUDY</span>
+              <span>View Live Website →</span>
               <span class="pc-arrow">↗</span>
             </div>
           </div>
         </div>
 
-        <!-- Card 3: Halcyon (Sanctuary Spa) -->
-        <div class="portfolio-card" onclick="openProjectModal(3)" data-project="3">
+        <!-- Card 3: Healthcare (Halcyon Sanctuary) -->
+        <div class="portfolio-card" onclick="openProjectModal(3)" data-project="3" data-category="healthcare">
           <div class="pc-image-wrap">
-            <img src="assets/orbit/halcyon.jpg" alt="Halcyon Spa" loading="lazy" />
-            <div class="pc-badge">4.9 ★ RATING</div>
+            <img src="assets/orbit/halcyon.jpg" alt="Halcyon Sanctuary" loading="lazy" />
+            <div class="pc-badge">HEALTHCARE</div>
             <div class="pc-overlay">
               <span>EXPLORE CASE STUDY ↗</span>
             </div>
           </div>
           <div class="pc-content">
             <div class="pc-meta">
-              <span class="pc-tag">WELLNESS &amp; SPA</span>
+              <span class="pc-tag">HEALTHCARE</span>
               <span class="pc-year">2026</span>
             </div>
-            <h3 class="pc-title">Halcyon — Luxury Wellness &amp; Sanctuary Spa</h3>
-            <p class="pc-desc">Atmospheric sensory web experience with seasonal treatment booking &amp; instant gift voucher store.</p>
+            <h3 class="pc-title">Halcyon Sanctuary</h3>
+            <p class="pc-desc">Atmospheric digital presence for wellness treatments, restorative therapies, and gift voucher purchasing.</p>
+            <div class="pc-built-with">
+              <span class="pc-feat-pill">Appointment Booking</span>
+              <span class="pc-feat-pill">Treatment Guide</span>
+              <span class="pc-feat-pill">Vouchers</span>
+              <span class="pc-feat-pill">Patient Intake</span>
+            </div>
             <div class="pc-action">
-              <span>VIEW FULL CASE STUDY</span>
+              <span>View Live Website →</span>
               <span class="pc-arrow">↗</span>
             </div>
           </div>
         </div>
 
-        <!-- Card 4: Sterling (Automotive Showroom) -->
-        <div class="portfolio-card" onclick="openProjectModal(4)" data-project="4">
+        <!-- Card 4: Salon (Cuts & Edges Studio) -->
+        <div class="portfolio-card" onclick="openProjectModal(4)" data-project="4" data-category="salon">
           <div class="pc-image-wrap">
-            <img src="assets/orbit/sterling.jpg" alt="Sterling Showroom" loading="lazy" />
-            <div class="pc-badge">98/100 SPEED</div>
+            <img src="assets/orbit/cuts-and-edges.jpg" alt="Cuts & Edges Studio" loading="lazy" />
+            <div class="pc-badge">SALON</div>
             <div class="pc-overlay">
               <span>EXPLORE CASE STUDY ↗</span>
             </div>
           </div>
           <div class="pc-content">
             <div class="pc-meta">
-              <span class="pc-tag">AUTOMOTIVE &amp; RETAIL</span>
+              <span class="pc-tag">SALON</span>
               <span class="pc-year">2026</span>
             </div>
-            <h3 class="pc-title">Sterling — Automotive Showroom</h3>
-            <p class="pc-desc">Luxury automotive showcase with VIP appointment booking and dynamic 360 vehicle inspection gallery.</p>
+            <h3 class="pc-title">Cuts &amp; Edges Studio</h3>
+            <p class="pc-desc">Contemporary grooming and hair studio web experience with lookbooks and appointment scheduling.</p>
+            <div class="pc-built-with">
+              <span class="pc-feat-pill">Online Booking</span>
+              <span class="pc-feat-pill">Stylist Lookbook</span>
+              <span class="pc-feat-pill">Service Menu</span>
+              <span class="pc-feat-pill">WhatsApp API</span>
+            </div>
             <div class="pc-action">
-              <span>VIEW FULL CASE STUDY</span>
+              <span>View Live Website →</span>
               <span class="pc-arrow">↗</span>
             </div>
           </div>
         </div>
 
-        <!-- Card 5: Air Center (Architecture Studio) -->
-        <div class="portfolio-card" onclick="openProjectModal(5)" data-project="5">
+        <!-- Card 5: Business (Air Center Architecture) -->
+        <div class="portfolio-card" onclick="openProjectModal(5)" data-project="5" data-category="business">
           <div class="pc-image-wrap">
             <img src="assets/orbit/air-center.jpg" alt="Air Center Architecture" loading="lazy" />
-            <div class="pc-badge">5.2x LEADS</div>
+            <div class="pc-badge">BUSINESS</div>
             <div class="pc-overlay">
               <span>EXPLORE CASE STUDY ↗</span>
             </div>
           </div>
           <div class="pc-content">
             <div class="pc-meta">
-              <span class="pc-tag">STUDIO &amp; ARCHITECTURE</span>
+              <span class="pc-tag">BUSINESS</span>
               <span class="pc-year">2026</span>
             </div>
-            <h3 class="pc-title">Air Center — Architectural Studio</h3>
-            <p class="pc-desc">Minimalist architectural portfolio featuring full-screen galleries, 3D blueprint views &amp; zero-bloat code.</p>
+            <h3 class="pc-title">Air Center Architecture</h3>
+            <p class="pc-desc">Architectural studio portfolio featuring minimalist project galleries and residential build inquiries.</p>
+            <div class="pc-built-with">
+              <span class="pc-feat-pill">Portfolio Showcase</span>
+              <span class="pc-feat-pill">Interactive Gallery</span>
+              <span class="pc-feat-pill">Inquiry Form</span>
+              <span class="pc-feat-pill">Clean Typography</span>
+            </div>
             <div class="pc-action">
-              <span>VIEW FULL CASE STUDY</span>
+              <span>View Live Website →</span>
+              <span class="pc-arrow">↗</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6: Other (Sterling Private Showroom) -->
+        <div class="portfolio-card" onclick="openProjectModal(6)" data-project="6" data-category="other">
+          <div class="pc-image-wrap">
+            <img src="assets/orbit/sterling.jpg" alt="Sterling Showroom" loading="lazy" />
+            <div class="pc-badge">OTHER</div>
+            <div class="pc-overlay">
+              <span>EXPLORE CASE STUDY ↗</span>
+            </div>
+          </div>
+          <div class="pc-content">
+            <div class="pc-meta">
+              <span class="pc-tag">OTHER</span>
+              <span class="pc-year">2026</span>
+            </div>
+            <h3 class="pc-title">Sterling Private Showroom</h3>
+            <p class="pc-desc">Bespoke digital showroom for collector automotive inventory with private viewing request system.</p>
+            <div class="pc-built-with">
+              <span class="pc-feat-pill">Vehicle Gallery</span>
+              <span class="pc-feat-pill">Viewing Scheduler</span>
+              <span class="pc-feat-pill">Specs Drawer</span>
+              <span class="pc-feat-pill">High-Res Views</span>
+            </div>
+            <div class="pc-action">
+              <span>View Live Website →</span>
+              <span class="pc-arrow">↗</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 7: Business Placeholder (Ready for user to add next real client) -->
+        <div class="portfolio-card" onclick="openProjectModal(7)" data-project="7" data-category="business">
+          <div class="pc-image-wrap">
+            <img src="assets/cafe.jpg" alt="Client Project Slot" loading="lazy" />
+            <div class="pc-badge">SLOT READY</div>
+            <div class="pc-overlay">
+              <span>EXPLORE CASE STUDY ↗</span>
+            </div>
+          </div>
+          <div class="pc-content">
+            <div class="pc-meta">
+              <span class="pc-tag">BUSINESS</span>
+              <span class="pc-year">READY</span>
+            </div>
+            <h3 class="pc-title">[Client Project Name]</h3>
+            <p class="pc-desc">Clean structured slot ready for your next real client website showcase and live link.</p>
+            <div class="pc-built-with">
+              <span class="pc-feat-pill">Next.js</span>
+              <span class="pc-feat-pill">Custom Design</span>
+              <span class="pc-feat-pill">Fast Speed</span>
+              <span class="pc-feat-pill">Lead Capture</span>
+            </div>
+            <div class="pc-action">
+              <span>View Live Website →</span>
               <span class="pc-arrow">↗</span>
             </div>
           </div>

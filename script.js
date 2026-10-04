@@ -1,5 +1,23 @@
 
 /* Global Modal & Navigation Handlers (Immediately available) */
+
+window.setModalPreviewMode = function(mode) {
+  const wrap = document.getElementById("pmViewportWrap");
+  const btnD = document.getElementById("btnPreviewDesktop");
+  const btnM = document.getElementById("btnPreviewMobile");
+  if (!wrap) return;
+
+  if (mode === "mobile") {
+    wrap.classList.add("view-mobile");
+    if (btnM) btnM.classList.add("active");
+    if (btnD) btnD.classList.remove("active");
+  } else {
+    wrap.classList.remove("view-mobile");
+    if (btnD) btnD.classList.add("active");
+    if (btnM) btnM.classList.remove("active");
+  }
+};
+
 window.openModal = function(id) {
   const modal = document.getElementById(id);
   if (modal) {
@@ -505,133 +523,183 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-      /* ── 12. FULL PROJECT DETAIL CASE STUDY MODAL ────────────── */
+        /* ── 12. FULL PROJECT DETAIL CASE STUDY MODAL ────────────── */
   const projectDetails = [
     {
-      title: "Aurora — Editorial Swimwear & Resortwear Storefront",
-      cat: "Resortwear & Swimwear",
+      title: "Aurora Collection — Luxury Swimwear Storefront",
+      cat: "E-commerce",
       year: "2026 CASE STUDY",
-      subtitle: "High-fashion e-commerce platform engineered for sub-second checkout speeds and high-impact editorial photography.",
+      subtitle: "High-fashion beachwear & luxury swimwear online storefront with seamless mobile experience and rapid checkout.",
       img: "assets/orbit/aurora.jpg",
-      challenge: "Aurora wanted to break away from traditional Shopify templates to deliver a high-fashion, editorial beach resortwear shopping journey with instant cart updates and fast page switches.",
+      challenge: "Aurora needed an editorial-grade digital experience for their seasonal swimwear drops. Standard e-commerce templates were slow and cluttered, creating cart abandonment on mobile.",
       deliverables: [
-        "Custom headless e-commerce frontend with instant slide-out bag",
-        "Lookbook interactive image hotspots linked directly to product buy buttons",
-        "Core Web Vitals 99+ score for mobile conversion rate optimization",
-        "Global currency switching and automatic tax calculation"
+        "Headless high-speed e-commerce frontend with instant slide-out bag",
+        "Interactive lookbook image hotspots linking directly to product sizing",
+        "Sub-second page speeds with Core Web Vitals 99+ score compliance",
+        "Streamlined mobile checkout flow with Apple Pay & Google Pay"
       ],
-      stats: [
-        { val: "+310%", lbl: "Mobile Sales" },
-        { val: "99 / 100", lbl: "Mobile Vitals" },
-        { val: "< 0.3s", lbl: "Checkout Speed" },
-        { val: "+150%", lbl: "Mobile Orders" }
+      features: [
+        "Headless Next.js architecture",
+        "Instant slide-out shopping bag",
+        "Interactive lookbook hotspots",
+        "Automated currency conversion"
       ],
-      tech: ["Next.js", "Headless Storefront", "GSAP Animations", "Stripe Checkout"]
+      liveUrl: "#",
+      tech: ["Next.js", "Headless Commerce", "GSAP Animations", "Stripe API"]
+    },
+    {
+      title: "The MARQ by Atlantis — Luxury High-Rise Realty",
+      cat: "Real Estate",
+      year: "2026 CASE STUDY",
+      subtitle: "Commercial & luxury high-rise development portal for Block B, Aerocity, Mohali.",
+      img: "assets/card1.jpg",
+      challenge: "The developer needed a modern, trustworthy digital showcase for a marquee high-rise destination, enabling prospective buyers and investors to explore towers, retail blocks, and floor plans with zero friction.",
+      deliverables: [
+        "Architectural presentation portal with high-definition rendering gallery",
+        "Interactive tower layout & commercial space floor plans",
+        "Direct inquiry capture synced to real estate sales team",
+        "Local search engine optimization for regional buyers"
+      ],
+      features: [
+        "Development showcase portal",
+        "Tower & floor plan explorer",
+        "Direct VIP viewing scheduler",
+        "Automated WhatsApp inquiry webhook"
+      ],
+      liveUrl: "#",
+      tech: ["Next.js", "Custom CSS Glass", "CRM Webhooks", "Schema.org RealEstate"]
     },
     {
       title: "Da Maria — Italian Coastal Dining",
-      cat: "Food & Drink",
+      cat: "Restaurant",
       year: "2026 CASE STUDY",
-      subtitle: "Bespoke reservation engine & high-conversion web platform built to turn table viewers into instant diners.",
+      subtitle: "Coastal Italian dining platform with an integrated table reservation engine and seasonal culinary menu.",
       img: "assets/orbit/da-maria.jpg",
-      challenge: "The existing venue website struggled with mobile load times and relied on third-party booking widgets that charged heavy commissions per table reservation. They needed a high-fashion, editorial digital presence matching their coastal venue atmosphere while keeping booking conversions 100% direct.",
+      challenge: "The restaurant relied on third-party booking widgets that charged recurring commission fees per reservation. They required a direct, beautiful dining website to handle reservations directly.",
       deliverables: [
-        "Custom Next.js & HTML5 direct reservation engine with real-time slot selection",
-        "Editorial typography and micro-interactions optimized for luxury mobile screens",
-        "Sub-second page speeds with automated image compression and WebP conversion",
-        "Localized SEO & Schema.org Restaurant rich snippet integration"
+        "Direct reservation engine with real-time dining slot selection",
+        "Interactive seasonal culinary & wine menu showcase",
+        "Sub-second mobile loading speed for on-the-go diners",
+        "Google Maps & Schema.org Restaurant rich snippet integration"
       ],
-      stats: [
-        { val: "+340%", lbl: "Table Bookings" },
-        { val: "99 / 100", lbl: "Lighthouse Speed" },
-        { val: "< 0.4s", lbl: "Load Time" },
-        { val: "0%", lbl: "Widget Fees" }
+      features: [
+        "Direct commission-free table booking",
+        "Interactive digital menu",
+        "Automated SMS & email reservation confirmations",
+        "Sub-second mobile load time"
       ],
-      tech: ["Next.js", "GSAP Motion", "HTML5 / CSS Glass", "Schema.org", "Lenis Scroll"]
+      liveUrl: "#",
+      tech: ["Next.js", "GSAP Motion", "HTML5 Canvas", "Schema.org Restaurant"]
     },
     {
-      title: "Halcyon — Luxury Wellness & Spa",
-      cat: "Wellness & Spa",
+      title: "Halcyon Sanctuary — Wellness & Restorative Spa",
+      cat: "Healthcare",
       year: "2026 CASE STUDY",
-      subtitle: "Atmospheric sensory web experience with seasonal treatment booking & instant gift card purchasing.",
+      subtitle: "Atmospheric digital presence for wellness treatments, restorative therapies, and gift voucher purchasing.",
       img: "assets/orbit/halcyon.jpg",
-      challenge: "Halcyon needed a serene digital space that reflected their physical sanctuary. The goal was to eliminate booking friction while telling their story of holistic wellness, organic products, and tailored retreats.",
+      challenge: "Halcyon needed a serene digital space that matched their physical sanctuary while automating their treatment booking and gift voucher sales.",
       deliverables: [
-        "Interactive seasonal treatment selector and instant digital voucher store",
-        "Calming pastel design palette with glassmorphism depth and fluid transitions",
-        "Integrated multi-staff appointment scheduler with SMS reminders",
-        "Zero-layout-shift responsive performance for mobile visitors"
+        "Multi-staff treatment booking scheduler with calendar sync",
+        "Online digital gift card & voucher purchasing store",
+        "Calming pastel aesthetic with subtle glassmorphic depth",
+        "Secure patient inquiry & intake form workflow"
       ],
-      stats: [
-        { val: "+210%", lbl: "Gift Voucher Sales" },
-        { val: "4.9 ★", lbl: "User Feedback" },
-        { val: "100%", lbl: "Mobile Friendly" },
-        { val: "< 0.3s", lbl: "Page Load" }
+      features: [
+        "Integrated appointment calendar",
+        "Digital gift card purchasing",
+        "Service catalog with duration & pricing",
+        "Mobile-optimized patient intake"
       ],
-      tech: ["HTML5 / CSS3", "GSAP ScrollTrigger", "Stripe API", "Mobile Micro-UX"]
+      liveUrl: "#",
+      tech: ["Next.js", "Tailwind / CSS Glass", "Stripe API", "Mobile UX"]
     },
     {
-      title: "Sterling — Automotive Showroom",
-      cat: "Automotive & Retail",
+      title: "Cuts & Edges Studio — Contemporary Hair Salon",
+      cat: "Salon",
       year: "2026 CASE STUDY",
-      subtitle: "Luxury automotive showcase with VIP appointment booking and dynamic 360 vehicle inspection gallery.",
-      img: "assets/orbit/sterling.jpg",
-      challenge: "Sterling required a high-touch digital experience for selling exclusive classic and supercar inventory online, replacing static PDF listings with interactive vehicle showcases.",
+      subtitle: "Contemporary grooming and hair studio web experience with lookbooks and appointment scheduling.",
+      img: "assets/orbit/cuts-and-edges.jpg",
+      challenge: "The studio needed to replace chaotic phone calls and DM bookings with an organized, visually polished booking system showcasing each stylist's work.",
       deliverables: [
-        "High-definition gallery viewer with technical specification drawer",
-        "VIP private viewing scheduling tool directly connected to showroom CRM",
-        "Glassmorphism detail panels with live inventory status indicators",
-        "Custom search & filter engine for vintage, sports, and luxury vehicles"
+        "Interactive stylist portfolio lookbook featuring real client work",
+        "Live chair reservation system with real-time availability",
+        "Instant WhatsApp quick-inquiry floating trigger",
+        "Transparent service and pricing menu breakdown"
       ],
-      stats: [
-        { val: "+420%", lbl: "Test Drive Leads" },
-        { val: "98 / 100", lbl: "Performance" },
-        { val: "< 0.5s", lbl: "Image Hydration" },
-        { val: "100%", lbl: "Private CRM Sync" }
+      features: [
+        "Live chair appointment booking",
+        "Stylist portfolio galleries",
+        "Direct WhatsApp inquiry integration",
+        "Zero layout shifts on mobile"
       ],
-      tech: ["HTML5 / JavaScript", "GSAP", "Custom CSS Morphism", "CRM Webhooks"]
+      liveUrl: "#",
+      tech: ["HTML5 / CSS3", "GSAP ScrollTrigger", "WhatsApp API", "Lenis Scroll"]
     },
     {
-      title: "Air Center — Architectural Studio",
-      cat: "Studio & Brand",
+      title: "Air Center — Architectural Studio Portfolio",
+      cat: "Business",
       year: "2026 CASE STUDY",
-      subtitle: "Bespoke architectural portfolio featuring smooth full-screen galleries and interactive project showcases.",
+      subtitle: "Architectural studio portfolio featuring minimalist project galleries and residential build inquiries.",
       img: "assets/orbit/air-center.jpg",
-      challenge: "Air Center builds minimalist residential structures and needed a digital portfolio that matched their clean architectural aesthetic without feeling like a generic template.",
+      challenge: "Air Center required an understated, editorial showcase reflecting their minimalist residential philosophy without generic template clutter.",
       deliverables: [
         "Full-screen high-definition project viewer with custom lightbox navigation",
-        "Subtle glassmorphic project details sidebar with blueprint overlays",
-        "Automated SEO optimization for architectural award search visibility",
-        "Ultra-clean typographic hierarchy and minimal dark-mode layout"
+        "Blueprint & material specification drawers for architectural awards",
+        "Clean typographic hierarchy and neutral minimalist palette",
+        "Sub-second page speeds with Core Web Vitals 100/100 score"
       ],
-      stats: [
-        { val: "5.2x", lbl: "Inquiry Rate" },
-        { val: "100 / 100", lbl: "SEO Score" },
-        { val: "+180%", lbl: "Avg Session Time" },
-        { val: "0.2s", lbl: "FCP Speed" }
+      features: [
+        "Full-screen project lightbox",
+        "Blueprint overlay drawers",
+        "Award & publication press list",
+        "Direct project commission inquiry form"
       ],
-      tech: ["Next.js", "WebGL / Canvas", "Tailwind / Custom CSS", "Lenis Scroll"]
+      liveUrl: "#",
+      tech: ["Next.js", "WebGL / Canvas", "Tailwind / CSS", "Lenis Scroll"]
     },
     {
-      title: "Gloryn — Luxury Automotive Atelier",
-      cat: "Bespoke Craft",
+      title: "Sterling Private Showroom — Collector Automotive",
+      cat: "Other",
       year: "2026 CASE STUDY",
-      subtitle: "Custom starlight interior showcase with private commission booking & material selector.",
-      img: "assets/orbit/gloryn.jpg",
-      challenge: "Gloryn crafts bespoke custom vehicle interiors and starlight headliners. They needed an ultra-luxurious digital showroom to present their leather work and fiber-optic lighting options.",
+      subtitle: "Bespoke digital showroom for collector automotive inventory with private viewing request system.",
+      img: "assets/orbit/sterling.jpg",
+      challenge: "Sterling needed a private digital gallery for selling multi-million dollar collector inventory to verified buyers worldwide.",
       deliverables: [
-        "Interactive starlight lighting simulator and material preview drawer",
-        "Direct developer consultation booking engine for high-ticket clients",
-        "High-contrast editorial dark theme matching luxury vehicle aesthetics",
-        "Sub-second page speeds with zero layout shifts"
+        "High-definition vehicle inspection gallery with specification drawer",
+        "VIP private viewing appointment booking synced to showroom CRM",
+        "Live inventory status indicators and private collection catalog",
+        "High-contrast editorial dark theme matching luxury automotive finishes"
       ],
-      stats: [
-        { val: "99+ / 100", lbl: "Vitals Score" },
-        { val: "+310%", lbl: "Inquiry Rate" },
-        { val: "< 0.3s", lbl: "Hydration" },
-        { val: "100%", lbl: "Bespoke UX" }
+      features: [
+        "Dynamic 360 inspection gallery",
+        "VIP private viewing scheduler",
+        "Technical specification drawer",
+        "Private collection inquiry gateway"
       ],
-      tech: ["HTML5 / CSS Glass", "GSAP ScrollTrigger", "Lenis Scroll", "Webhook Sync"]
+      liveUrl: "#",
+      tech: ["Next.js", "GSAP ScrollTrigger", "CRM Webhooks", "Custom CSS"]
+    },
+    {
+      title: "[Your Client Project Name] — Web Experience",
+      cat: "Business",
+      year: "READY TO DEPLOY",
+      subtitle: "Structured placeholder ready for your next real client website showcase and live link.",
+      img: "assets/cafe.jpg",
+      challenge: "A clean, structured placeholder slot ready for your next completed client project. Easily update title, description, screenshots, and live URL.",
+      deliverables: [
+        "100% Bespoke responsive web design crafted in Figma & code",
+        "Mobile-first performance optimization for high conversion",
+        "SEO structured data & Google Search Console indexing",
+        "Direct inquiry or booking integration"
+      ],
+      features: [
+        "Custom design system",
+        "Sub-second page speeds",
+        "Mobile-first responsive UX",
+        "Lead generation capture"
+      ],
+      liveUrl: "#",
+      tech: ["Next.js", "HTML5 / CSS Glass", "GSAP Motion", "SEO Schema"]
     }
   ];
 
@@ -646,8 +714,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const pmHeroImg = document.getElementById("pmHeroImg");
     const pmChallenge = document.getElementById("pmChallenge");
     const pmDeliverables = document.getElementById("pmDeliverables");
-    const pmStats = document.getElementById("pmStats");
+    const pmFeaturesList = document.getElementById("pmFeaturesList");
     const pmTechTags = document.getElementById("pmTechTags");
+    const pmLiveLink = document.getElementById("pmLiveLink");
+    const pmLiveLinkTop = document.getElementById("pmLiveLinkTop");
 
     if (pmCat) pmCat.textContent = data.cat;
     if (pmYear) pmYear.textContent = `• ${data.year}`;
@@ -656,22 +726,38 @@ document.addEventListener("DOMContentLoaded", () => {
     if (pmHeroImg) pmHeroImg.style.backgroundImage = `url('${data.img}')`;
     if (pmChallenge) pmChallenge.textContent = data.challenge;
 
-    if (pmDeliverables) {
+    if (pmDeliverables && data.deliverables) {
       pmDeliverables.innerHTML = data.deliverables.map(item => `<li>${item}</li>`).join("");
     }
 
-    if (pmStats) {
-      pmStats.innerHTML = data.stats.map(s => `
-        <div class="pm-stat-box">
-          <span class="pm-stat-val">${s.val}</span>
-          <span class="pm-stat-lbl">${s.lbl}</span>
-        </div>
-      `).join("");
+    if (pmFeaturesList && data.features) {
+      pmFeaturesList.innerHTML = data.features.map(f => `<li>${f}</li>`).join("");
     }
 
-    if (pmTechTags) {
+    if (pmTechTags && data.tech) {
       pmTechTags.innerHTML = data.tech.map(t => `<span>${t}</span>`).join("");
     }
+
+    const liveUrl = data.liveUrl || "#";
+    if (pmLiveLink) {
+      pmLiveLink.href = liveUrl;
+      if (liveUrl === "#") {
+        pmLiveLink.onclick = (e) => { e.preventDefault(); alert("Live link ready. Connect your client URL here."); };
+      } else {
+        pmLiveLink.onclick = null;
+      }
+    }
+    if (pmLiveLinkTop) {
+      pmLiveLinkTop.href = liveUrl;
+      if (liveUrl === "#") {
+        pmLiveLinkTop.onclick = (e) => { e.preventDefault(); alert("Live link ready. Connect your client URL here."); };
+      } else {
+        pmLiveLinkTop.onclick = null;
+      }
+    }
+
+    // Reset preview mode to desktop
+    if (window.setModalPreviewMode) window.setModalPreviewMode("desktop");
 
     window.openModal("projectDetailModal");
   };
@@ -815,6 +901,31 @@ document.addEventListener("DOMContentLoaded", () => {
       tech: ["SSL Security", "Cloudflare CDN", "Uptime Monitoring", "Daily Backups", "Developer Access"]
     }
   };
+
+  
+  /* ── 15. PORTFOLIO CATEGORY FILTERS ────────────────────── */
+  const filterBtns = document.querySelectorAll(".p-filter-btn");
+  const portfolioCards = document.querySelectorAll(".portfolio-card");
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      filterBtns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      const filter = btn.getAttribute("data-filter");
+
+      portfolioCards.forEach(card => {
+        const cat = card.getAttribute("data-category");
+        if (filter === "all" || cat === filter) {
+          card.classList.remove("filter-hidden");
+        } else {
+          card.classList.add("filter-hidden");
+        }
+      });
+      if (typeof ScrollTrigger !== "undefined") {
+        ScrollTrigger.refresh();
+      }
+    });
+  });
 
   window.openServiceModal = function(key) {
     const data = serviceDetails[key] || serviceDetails.design;
