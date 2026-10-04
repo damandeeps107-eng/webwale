@@ -258,22 +258,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-    /* ── 6. MOSSIMO SELECTED WORK PREVIEW SHOWCASE ──────────── */
+      /* ── 6. MOSSIMO SELECTED WORK PREVIEW SHOWCASE ──────────── */
   const projects = [
     {
-      caption: "Lithos Luxury Real Estate — High-end coastal penthouse & estate booking platform with live 3D walkthroughs.",
+      caption: "Aurora Swimwear — High-fashion editorial resortwear & swimwear collection storefront with sub-second page speeds.",
       type: "image",
-      content: "url('assets/orbit/lithos-realty.jpg')"
-    },
-    {
-      caption: "Neuron Masterclass Academy — Dark-mode digital academy with interactive video modules & student dashboard.",
-      type: "image",
-      content: "url('assets/orbit/neuron-academy.jpg')"
-    },
-    {
-      caption: "Aurélia Curated Luxury Storefront — Sub-second high-fashion e-commerce platform with slide-out bag & instant checkout.",
-      type: "image",
-      content: "url('assets/orbit/aurelia-fashion.jpg')"
+      content: "url('assets/orbit/aurora.jpg')"
     },
     {
       caption: "Da Maria Coastal Dining — Italian coastal dining & reservation platform. Online table bookings increased by 3.4×.",
@@ -286,9 +276,19 @@ document.addEventListener("DOMContentLoaded", () => {
       content: "url('assets/orbit/halcyon.jpg')"
     },
     {
+      caption: "Sterling Showroom — Automotive showroom digital gallery & bespoke appointment booking engine.",
+      type: "image",
+      content: "url('assets/orbit/sterling.jpg')"
+    },
+    {
       caption: "Air Center Studio — Architectural portfolio featuring smooth page transitions and interactive blueprint viewer.",
       type: "image",
       content: "url('assets/orbit/air-center.jpg')"
+    },
+    {
+      caption: "Gloryn Custom Atelier — Bespoke luxury interior craftsmanship showcase & direct consultation engine.",
+      type: "image",
+      content: "url('assets/orbit/gloryn.jpg')"
     }
   ];
 
@@ -505,68 +505,26 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-    /* ── 12. FULL PROJECT DETAIL CASE STUDY MODAL ────────────── */
+      /* ── 12. FULL PROJECT DETAIL CASE STUDY MODAL ────────────── */
   const projectDetails = [
     {
-      title: "Lithos — Luxury Real Estate & Villa Realty",
-      cat: "Real Estate & Realtor",
+      title: "Aurora — Editorial Swimwear & Resortwear Storefront",
+      cat: "Resortwear & Swimwear",
       year: "2026 CASE STUDY",
-      subtitle: "Bespoke penthouse & estate digital booking engine engineered to convert high-net-worth property buyers.",
-      img: "assets/orbit/lithos-realty.jpg",
-      challenge: "Lithos needed an exclusive digital presence matching their $10M+ luxury villa portfolio. Traditional real estate templates failed to deliver the smooth editorial feel, ultra-fast image hydration, and private tour scheduling required by high-profile buyers.",
+      subtitle: "High-fashion e-commerce platform engineered for sub-second checkout speeds and high-impact editorial photography.",
+      img: "assets/orbit/aurora.jpg",
+      challenge: "Aurora wanted to break away from traditional Shopify templates to deliver a high-fashion, editorial beach resortwear shopping journey with instant cart updates and fast page switches.",
       deliverables: [
-        "Interactive villa preview gallery with 60fps high-resolution image compression",
-        "Private VIP viewing scheduler directly synced with luxury broker calendars",
-        "Editorial architectural typography and glassmorphic property detail panels",
-        "Sub-second page speeds and localized Schema.org RealEstateAgent rich snippets"
-      ],
-      stats: [
-        { val: "+480%", lbl: "Inquiry Rate" },
-        { val: "99 / 100", lbl: "Lighthouse Speed" },
-        { val: "< 0.3s", lbl: "Load Time" },
-        { val: "$42M+", lbl: "Listings Sold" }
-      ],
-      tech: ["Next.js", "GSAP Motion", "Tailwind / Custom CSS", "Schema.org", "Lenis Scroll"]
-    },
-    {
-      title: "Neuron — UI/UX & Digital Strategy Academy",
-      cat: "Education & Masterclass",
-      year: "2026 CASE STUDY",
-      subtitle: "Dark-mode e-learning platform featuring interactive video curriculum, progress tracking & live student dashboards.",
-      img: "assets/orbit/neuron-academy.jpg",
-      challenge: "Neuron Academy was transitioning from third-party course platforms to a custom self-hosted masterclass platform. They required a zero-lag video player experience, automated certificate generation, and instant lesson progress tracking.",
-      deliverables: [
-        "Custom Next.js video streaming platform with adaptive bitrate playback",
-        "Interactive module completion tracker and real-time student analytics dashboard",
-        "Sleek dark-mode editorial aesthetic with customizable progress badges",
-        "Instant student enrollment workflow with Stripe payment webhooks"
-      ],
-      stats: [
-        { val: "145k+", lbl: "Active Students" },
-        { val: "4.9 ★", lbl: "Course Feedback" },
-        { val: "100%", lbl: "Mobile Friendly" },
-        { val: "< 0.4s", lbl: "Lesson Switch" }
-      ],
-      tech: ["Next.js", "Video.js", "Stripe API", "GSAP", "Custom CSS Glass"]
-    },
-    {
-      title: "Aurélia — Curated Luxury Fashion Storefront",
-      cat: "Luxury E-Commerce",
-      year: "2026 CASE STUDY",
-      subtitle: "Sub-second high-fashion e-commerce platform with interactive slide-out bag, lookbook hotspots & instant checkout.",
-      img: "assets/orbit/aurelia-fashion.jpg",
-      challenge: "Aurélia wanted to eliminate shopping cart drop-offs on mobile devices. Standard e-commerce templates were slow and cluttered. They required a minimal editorial lookbook experience with sub-second checkout speeds.",
-      deliverables: [
-        "Headless e-commerce architecture with instant slide-out bag and one-tap Apple Pay",
-        "Interactive lookbook image hotspots linking directly to size selectors",
-        "Core Web Vitals 99+ score optimization for mobile conversion rate lift",
-        "Global currency switching and automated tax calculation at checkout"
+        "Custom headless e-commerce frontend with instant slide-out bag",
+        "Lookbook interactive image hotspots linked directly to product buy buttons",
+        "Core Web Vitals 99+ score for mobile conversion rate optimization",
+        "Global currency switching and automatic tax calculation"
       ],
       stats: [
         { val: "+310%", lbl: "Mobile Sales" },
         { val: "99 / 100", lbl: "Mobile Vitals" },
         { val: "< 0.3s", lbl: "Checkout Speed" },
-        { val: "3.8x", lbl: "Avg Order Value" }
+        { val: "+150%", lbl: "Mobile Orders" }
       ],
       tech: ["Next.js", "Headless Storefront", "GSAP Animations", "Stripe Checkout"]
     },
@@ -613,6 +571,27 @@ document.addEventListener("DOMContentLoaded", () => {
       tech: ["HTML5 / CSS3", "GSAP ScrollTrigger", "Stripe API", "Mobile Micro-UX"]
     },
     {
+      title: "Sterling — Automotive Showroom",
+      cat: "Automotive & Retail",
+      year: "2026 CASE STUDY",
+      subtitle: "Luxury automotive showcase with VIP appointment booking and dynamic 360 vehicle inspection gallery.",
+      img: "assets/orbit/sterling.jpg",
+      challenge: "Sterling required a high-touch digital experience for selling exclusive classic and supercar inventory online, replacing static PDF listings with interactive vehicle showcases.",
+      deliverables: [
+        "High-definition gallery viewer with technical specification drawer",
+        "VIP private viewing scheduling tool directly connected to showroom CRM",
+        "Glassmorphism detail panels with live inventory status indicators",
+        "Custom search & filter engine for vintage, sports, and luxury vehicles"
+      ],
+      stats: [
+        { val: "+420%", lbl: "Test Drive Leads" },
+        { val: "98 / 100", lbl: "Performance" },
+        { val: "< 0.5s", lbl: "Image Hydration" },
+        { val: "100%", lbl: "Private CRM Sync" }
+      ],
+      tech: ["HTML5 / JavaScript", "GSAP", "Custom CSS Morphism", "CRM Webhooks"]
+    },
+    {
       title: "Air Center — Architectural Studio",
       cat: "Studio & Brand",
       year: "2026 CASE STUDY",
@@ -632,6 +611,27 @@ document.addEventListener("DOMContentLoaded", () => {
         { val: "0.2s", lbl: "FCP Speed" }
       ],
       tech: ["Next.js", "WebGL / Canvas", "Tailwind / Custom CSS", "Lenis Scroll"]
+    },
+    {
+      title: "Gloryn — Luxury Automotive Atelier",
+      cat: "Bespoke Craft",
+      year: "2026 CASE STUDY",
+      subtitle: "Custom starlight interior showcase with private commission booking & material selector.",
+      img: "assets/orbit/gloryn.jpg",
+      challenge: "Gloryn crafts bespoke custom vehicle interiors and starlight headliners. They needed an ultra-luxurious digital showroom to present their leather work and fiber-optic lighting options.",
+      deliverables: [
+        "Interactive starlight lighting simulator and material preview drawer",
+        "Direct developer consultation booking engine for high-ticket clients",
+        "High-contrast editorial dark theme matching luxury vehicle aesthetics",
+        "Sub-second page speeds with zero layout shifts"
+      ],
+      stats: [
+        { val: "99+ / 100", lbl: "Vitals Score" },
+        { val: "+310%", lbl: "Inquiry Rate" },
+        { val: "< 0.3s", lbl: "Hydration" },
+        { val: "100%", lbl: "Bespoke UX" }
+      ],
+      tech: ["HTML5 / CSS Glass", "GSAP ScrollTrigger", "Lenis Scroll", "Webhook Sync"]
     }
   ];
 
