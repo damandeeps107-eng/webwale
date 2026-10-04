@@ -265,8 +265,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     ScrollTrigger.create({
       trigger: sec,
-      start: "top 50%",
-      end: "bottom 50%",
+      start: "top 65%",
+      end: "bottom 35%",
       onEnter: () => {
         document.body.style.backgroundColor = bgColor;
       },
@@ -414,22 +414,18 @@ document.addEventListener("DOMContentLoaded", () => {
     block.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  // IntersectionObserver: as content blocks scroll into view, highlight corresponding pill
+  // Fast responsive ScrollTrigger for step color morphing and active pill highlights
   const procBlocks = document.querySelectorAll(".proc-content-block");
   if (procBlocks.length) {
-    const procObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const idx = parseInt(entry.target.getAttribute("data-block") || "0");
-          setActiveProcPill(idx);
-        }
+    procBlocks.forEach((block, idx) => {
+      ScrollTrigger.create({
+        trigger: block,
+        start: "top 55%",
+        end: "bottom 45%",
+        onEnter: () => setActiveProcPill(idx),
+        onEnterBack: () => setActiveProcPill(idx),
       });
-    }, {
-      rootMargin: "-30% 0px -55% 0px",
-      threshold: 0
     });
-
-    procBlocks.forEach(block => procObserver.observe(block));
   }
 
   window.openProcessModalForStep = function(stepIdx) {
