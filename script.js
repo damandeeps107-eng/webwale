@@ -258,32 +258,37 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* ── 6. MOSSIMO SELECTED WORK PREVIEW SHOWCASE ──────────── */
+    /* ── 6. MOSSIMO SELECTED WORK PREVIEW SHOWCASE ──────────── */
   const projects = [
     {
-      caption: "Italian coastal dining & reservation platform. Online table bookings increased by 3.4× in the first month.",
+      caption: "Lithos Luxury Real Estate — High-end coastal penthouse & estate booking platform with live 3D walkthroughs.",
+      type: "image",
+      content: "url('assets/orbit/lithos-realty.jpg')"
+    },
+    {
+      caption: "Neuron Masterclass Academy — Dark-mode digital academy with interactive video modules & student dashboard.",
+      type: "image",
+      content: "url('assets/orbit/neuron-academy.jpg')"
+    },
+    {
+      caption: "Aurélia Curated Luxury Storefront — Sub-second high-fashion e-commerce platform with slide-out bag & instant checkout.",
+      type: "image",
+      content: "url('assets/orbit/aurelia-fashion.jpg')"
+    },
+    {
+      caption: "Da Maria Coastal Dining — Italian coastal dining & reservation platform. Online table bookings increased by 3.4×.",
       type: "image",
       content: "url('assets/orbit/da-maria.jpg')"
     },
     {
-      caption: "Luxury day spa & retreat booking system with seasonal treatment guides and gift card store.",
+      caption: "Halcyon Day Spa — Luxury day spa & retreat booking system with seasonal treatment guides and gift card store.",
       type: "image",
       content: "url('assets/orbit/halcyon.jpg')"
     },
     {
-      caption: "Architectural studio portfolio & brand showcase featuring smooth page transitions and interactive 3D model viewer.",
+      caption: "Air Center Studio — Architectural portfolio featuring smooth page transitions and interactive blueprint viewer.",
       type: "image",
       content: "url('assets/orbit/air-center.jpg')"
-    },
-    {
-      caption: "Automotive showroom digital gallery & bespoke appointment booking engine.",
-      type: "image",
-      content: "url('assets/orbit/sterling.jpg')"
-    },
-    {
-      caption: "Editorial swimwear collection & e-commerce storefront with 99+ Core Web Vitals performance score.",
-      type: "image",
-      content: "url('assets/orbit/aurora.jpg')"
     }
   ];
 
@@ -500,8 +505,71 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  /* ── 12. FULL PROJECT DETAIL CASE STUDY MODAL ────────────── */
+    /* ── 12. FULL PROJECT DETAIL CASE STUDY MODAL ────────────── */
   const projectDetails = [
+    {
+      title: "Lithos — Luxury Real Estate & Villa Realty",
+      cat: "Real Estate & Realtor",
+      year: "2026 CASE STUDY",
+      subtitle: "Bespoke penthouse & estate digital booking engine engineered to convert high-net-worth property buyers.",
+      img: "assets/orbit/lithos-realty.jpg",
+      challenge: "Lithos needed an exclusive digital presence matching their $10M+ luxury villa portfolio. Traditional real estate templates failed to deliver the smooth editorial feel, ultra-fast image hydration, and private tour scheduling required by high-profile buyers.",
+      deliverables: [
+        "Interactive villa preview gallery with 60fps high-resolution image compression",
+        "Private VIP viewing scheduler directly synced with luxury broker calendars",
+        "Editorial architectural typography and glassmorphic property detail panels",
+        "Sub-second page speeds and localized Schema.org RealEstateAgent rich snippets"
+      ],
+      stats: [
+        { val: "+480%", lbl: "Inquiry Rate" },
+        { val: "99 / 100", lbl: "Lighthouse Speed" },
+        { val: "< 0.3s", lbl: "Load Time" },
+        { val: "$42M+", lbl: "Listings Sold" }
+      ],
+      tech: ["Next.js", "GSAP Motion", "Tailwind / Custom CSS", "Schema.org", "Lenis Scroll"]
+    },
+    {
+      title: "Neuron — UI/UX & Digital Strategy Academy",
+      cat: "Education & Masterclass",
+      year: "2026 CASE STUDY",
+      subtitle: "Dark-mode e-learning platform featuring interactive video curriculum, progress tracking & live student dashboards.",
+      img: "assets/orbit/neuron-academy.jpg",
+      challenge: "Neuron Academy was transitioning from third-party course platforms to a custom self-hosted masterclass platform. They required a zero-lag video player experience, automated certificate generation, and instant lesson progress tracking.",
+      deliverables: [
+        "Custom Next.js video streaming platform with adaptive bitrate playback",
+        "Interactive module completion tracker and real-time student analytics dashboard",
+        "Sleek dark-mode editorial aesthetic with customizable progress badges",
+        "Instant student enrollment workflow with Stripe payment webhooks"
+      ],
+      stats: [
+        { val: "145k+", lbl: "Active Students" },
+        { val: "4.9 ★", lbl: "Course Feedback" },
+        { val: "100%", lbl: "Mobile Friendly" },
+        { val: "< 0.4s", lbl: "Lesson Switch" }
+      ],
+      tech: ["Next.js", "Video.js", "Stripe API", "GSAP", "Custom CSS Glass"]
+    },
+    {
+      title: "Aurélia — Curated Luxury Fashion Storefront",
+      cat: "Luxury E-Commerce",
+      year: "2026 CASE STUDY",
+      subtitle: "Sub-second high-fashion e-commerce platform with interactive slide-out bag, lookbook hotspots & instant checkout.",
+      img: "assets/orbit/aurelia-fashion.jpg",
+      challenge: "Aurélia wanted to eliminate shopping cart drop-offs on mobile devices. Standard e-commerce templates were slow and cluttered. They required a minimal editorial lookbook experience with sub-second checkout speeds.",
+      deliverables: [
+        "Headless e-commerce architecture with instant slide-out bag and one-tap Apple Pay",
+        "Interactive lookbook image hotspots linking directly to size selectors",
+        "Core Web Vitals 99+ score optimization for mobile conversion rate lift",
+        "Global currency switching and automated tax calculation at checkout"
+      ],
+      stats: [
+        { val: "+310%", lbl: "Mobile Sales" },
+        { val: "99 / 100", lbl: "Mobile Vitals" },
+        { val: "< 0.3s", lbl: "Checkout Speed" },
+        { val: "3.8x", lbl: "Avg Order Value" }
+      ],
+      tech: ["Next.js", "Headless Storefront", "GSAP Animations", "Stripe Checkout"]
+    },
     {
       title: "Da Maria — Italian Coastal Dining",
       cat: "Food & Drink",
@@ -564,48 +632,6 @@ document.addEventListener("DOMContentLoaded", () => {
         { val: "0.2s", lbl: "FCP Speed" }
       ],
       tech: ["Next.js", "WebGL / Canvas", "Tailwind / Custom CSS", "Lenis Scroll"]
-    },
-    {
-      title: "Sterling — Automotive Showroom",
-      cat: "Automotive & Retail",
-      year: "2026 CASE STUDY",
-      subtitle: "Luxury automotive showcase with VIP appointment booking and dynamic 360 vehicle inspection gallery.",
-      img: "assets/orbit/sterling.jpg",
-      challenge: "Sterling required a high-touch digital experience for selling exclusive classic and supercar inventory online, replacing static PDF listings with interactive vehicle showcases.",
-      deliverables: [
-        "High-definition gallery viewer with technical specification drawer",
-        "VIP private viewing scheduling tool directly connected to showroom CRM",
-        "Glassmorphism detail panels with live inventory status indicators",
-        "Custom search & filter engine for vintage, sports, and luxury vehicles"
-      ],
-      stats: [
-        { val: "+420%", lbl: "Test Drive Leads" },
-        { val: "98 / 100", lbl: "Performance" },
-        { val: "< 0.5s", lbl: "Image Hydration" },
-        { val: "100%", lbl: "Private CRM Sync" }
-      ],
-      tech: ["HTML5 / JavaScript", "GSAP", "Custom CSS Morphism", "CRM Webhooks"]
-    },
-    {
-      title: "Aurora — Editorial Swimwear Storefront",
-      cat: "Retail & Fashion",
-      year: "2026 CASE STUDY",
-      subtitle: "High-fashion e-commerce platform engineered for sub-second checkout speeds and high-impact editorial imagery.",
-      img: "assets/orbit/aurora.jpg",
-      challenge: "Aurora wanted to break away from traditional Shopify templates to deliver a high-fashion, editorial shopping journey with instant cart updates and fast page switches.",
-      deliverables: [
-        "Custom headless e-commerce frontend with instant slide-out bag",
-        "Lookbook interactive image hotspots linked directly to product buy buttons",
-        "Core Web Vitals 99+ score for mobile conversion rate optimization",
-        "Global currency switching and automatic tax calculation"
-      ],
-      stats: [
-        { val: "+280%", lbl: "Conversion Rate" },
-        { val: "99 / 100", lbl: "Mobile Vitals" },
-        { val: "< 0.3s", lbl: "Checkout Speed" },
-        { val: "+150%", lbl: "Mobile Orders" }
-      ],
-      tech: ["Next.js", "Headless Storefront", "GSAP Animations", "Stripe Checkout"]
     }
   ];
 
