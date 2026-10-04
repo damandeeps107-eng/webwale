@@ -1,0 +1,1141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>webwale.in — Editorial Web Studio</title>
+  <meta name="description" content="Custom web design, e-commerce & high-performance digital builds engineered to turn visitors into clients." />
+
+  <!-- Google Fonts: Newsreader + Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- GSAP & Lenis -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+</head>
+<body data-bg="#efeeea">
+
+  <!-- Interactive Smooth Cursor Ring -->
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="ld-inner">
+      <div class="ld-logo"><img src="assets/webwale-logo-transparent.png" alt="webwale.in" class="loader-logo-img" /></div>
+      <div class="ld-bar"><div class="ld-fill" id="ldFill"></div></div>
+      <div class="ld-num"><span id="ldNum">0</span>%</div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION (Web Wale Navigation) -->
+  <nav id="nav">
+    <a href="#hero" class="nav-brand"><img src="assets/webwale-logo-nav.png" alt="webwale.in" class="site-logo-img" /></a>
+    <div class="nav-links">
+      <a href="#work">Portfolio</a>
+      <a href="#services">Services</a>
+      <a href="#" onclick="openModal('faqModal'); return false;">How it works ↗</a>
+      <a href="#" onclick="openModal('aboutModal'); return false;">About ↗</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="nav-cta-btn">Start a Project</a>
+    <button class="burger" id="burger" aria-label="Menu" onclick="toggleMenu()"><span></span><span></span></button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div id="mobileMenu" class="mobile-menu">
+    <div class="mm-links">
+      <a href="#work" onclick="closeMenu()">Portfolio</a>
+      <a href="#services" onclick="closeMenu()">Services</a>
+      <a href="#" onclick="closeMenu(); openModal('faqModal'); return false;">How it works ↗</a>
+      <a href="#" onclick="closeMenu(); openModal('aboutModal'); return false;">About ↗</a>
+      <a href="#contact" onclick="closeMenu()">Contact</a>
+    </div>
+    <a href="#contact" class="mm-cta" onclick="closeMenu()">Start a Project →</a>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       HERO — LARGE EDITORIAL ORBIT MOTION SYSTEM
+  ══════════════════════════════════════════════════════ -->
+  <section id="hero" class="hero-section" data-section-bg="#efeeea">
+
+    <!-- 6 editorial image cards on one continuous rotating wheel (Mossimo Studio 1:1 Architecture) -->
+    <div class="orbit-stage" id="orbitStage">
+      <div class="orbit-wheel" id="orbitWheel">
+        <div class="orbit-card" id="card0"><img src="assets/orbit/da-maria.jpg" alt="Da Maria" draggable="false" /></div>
+        <div class="orbit-card" id="card1"><img src="assets/orbit/halcyon.jpg" alt="Halcyon" draggable="false" /></div>
+        <div class="orbit-card" id="card2"><img src="assets/orbit/air-center.jpg" alt="Air Center" draggable="false" /></div>
+        <div class="orbit-card" id="card3"><img src="assets/orbit/sterling.jpg" alt="Sterling" draggable="false" /></div>
+        <div class="orbit-card" id="card4"><img src="assets/orbit/gloryn.jpg" alt="Gloryn" draggable="false" /></div>
+        <div class="orbit-card" id="card5"><img src="assets/orbit/aurora.jpg" alt="Aurora" draggable="false" /></div>
+      </div>
+    </div>
+
+    <!-- Radial gradient mask protecting central typography from card overlap -->
+    <div class="hero-text-mask" aria-hidden="true"></div>
+
+    <!-- Centered text block (z-index ABOVE the cards, pointer-events none except the button) -->
+    <div class="hero-center" id="heroCenter">
+      <h1 class="hero-headline">
+        <span class="hh-line"><em>Beautiful</em> websites for</span>
+        <span class="hh-line">businesses that refuse to</span>
+        <span class="hh-line"><em>blend in.</em></span>
+      </h1>
+      <p class="hero-sub">
+        We turn your brand into a digital experience people notice, remember, and want to come back to.
+      </p>
+      <div class="hero-ctas">
+        <a href="#work" class="btn-work">SEE THE WORK</a>
+      </div>
+    </div>
+
+    <div class="hero-hint" id="heroHint">
+      <div class="hint-line"></div>
+      <span>scroll down</span>
+    </div>
+
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       SECTION: SELECTED WORK (MODERN GLASSMORPHISM CARD GRID)
+   ══════════════════════════════════════════════════════ -->
+  <section id="work" class="section-work" data-section-bg="#efece6">
+    <div class="section-container">
+      <div class="work-header-wrap">
+        <div class="sec-label">SELECTED WORK</div>
+        <h2 class="work-section-title">Crafted with precision.<br /><em>Engineered for real results.</em></h2>
+        <p class="work-section-sub">Click any project to inspect the full case study, tech stack, and live performance metrics.</p>
+      </div>
+
+      <!-- Modern Glassmorphism Portfolio Cards Grid -->
+      <div class="portfolio-grid">
+
+        <!-- Card 0: Da Maria -->
+        <div class="portfolio-card" onclick="openProjectModal(0)" data-project="0">
+          <div class="pc-image-wrap">
+            <img src="assets/orbit/da-maria.jpg" alt="Da Maria" loading="lazy" />
+            <div class="pc-badge">+340% BOOKINGS</div>
+            <div class="pc-overlay">
+              <span>EXPLORE CASE STUDY ↗</span>
+            </div>
+          </div>
+          <div class="pc-content">
+            <div class="pc-meta">
+              <span class="pc-tag">FOOD &amp; DRINK</span>
+              <span class="pc-year">2026</span>
+            </div>
+            <h3 class="pc-title">Da Maria — Italian Coastal Dining</h3>
+            <p class="pc-desc">Bespoke reservation engine &amp; high-conversion web platform built to turn table viewers into instant diners.</p>
+            <div class="pc-action">
+              <span>VIEW FULL CASE STUDY</span>
+              <span class="pc-arrow">↗</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 1: Halcyon -->
+        <div class="portfolio-card" onclick="openProjectModal(1)" data-project="1">
+          <div class="pc-image-wrap">
+            <img src="assets/orbit/halcyon.jpg" alt="Halcyon" loading="lazy" />
+            <div class="pc-badge">4.9 ★ RATING</div>
+            <div class="pc-overlay">
+              <span>EXPLORE CASE STUDY ↗</span>
+            </div>
+          </div>
+          <div class="pc-content">
+            <div class="pc-meta">
+              <span class="pc-tag">WELLNESS &amp; SPA</span>
+              <span class="pc-year">2026</span>
+            </div>
+            <h3 class="pc-title">Halcyon — Luxury Wellness &amp; Spa</h3>
+            <p class="pc-desc">Atmospheric sensory web experience with seasonal treatment booking &amp; instant gift card purchasing.</p>
+            <div class="pc-action">
+              <span>VIEW FULL CASE STUDY</span>
+              <span class="pc-arrow">↗</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Air Center -->
+        <div class="portfolio-card" onclick="openProjectModal(2)" data-project="2">
+          <div class="pc-image-wrap">
+            <img src="assets/orbit/air-center.jpg" alt="Air Center" loading="lazy" />
+            <div class="pc-badge">5.2x LEADS</div>
+            <div class="pc-overlay">
+              <span>EXPLORE CASE STUDY ↗</span>
+            </div>
+          </div>
+          <div class="pc-content">
+            <div class="pc-meta">
+              <span class="pc-tag">STUDIO &amp; BRAND</span>
+              <span class="pc-year">2026</span>
+            </div>
+            <h3 class="pc-title">Air Center — Architectural Studio</h3>
+            <p class="pc-desc">Minimalist architectural portfolio featuring full-screen galleries, 3D blueprint views &amp; zero-bloat code.</p>
+            <div class="pc-action">
+              <span>VIEW FULL CASE STUDY</span>
+              <span class="pc-arrow">↗</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Sterling -->
+        <div class="portfolio-card" onclick="openProjectModal(3)" data-project="3">
+          <div class="pc-image-wrap">
+            <img src="assets/orbit/sterling.jpg" alt="Sterling" loading="lazy" />
+            <div class="pc-badge">98/100 SPEED</div>
+            <div class="pc-overlay">
+              <span>EXPLORE CASE STUDY ↗</span>
+            </div>
+          </div>
+          <div class="pc-content">
+            <div class="pc-meta">
+              <span class="pc-tag">AUTOMOTIVE &amp; RETAIL</span>
+              <span class="pc-year">2026</span>
+            </div>
+            <h3 class="pc-title">Sterling — Automotive Showroom</h3>
+            <p class="pc-desc">Luxury automotive showcase with VIP appointment booking and dynamic 360 vehicle inspection gallery.</p>
+            <div class="pc-action">
+              <span>VIEW FULL CASE STUDY</span>
+              <span class="pc-arrow">↗</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Gloryn -->
+        <div class="portfolio-card" onclick="openProjectModal(4)" data-project="4">
+          <div class="pc-image-wrap">
+            <img src="assets/orbit/gloryn.jpg" alt="Gloryn" loading="lazy" />
+            <div class="pc-badge">99+ VITALS</div>
+            <div class="pc-overlay">
+              <span>EXPLORE CASE STUDY ↗</span>
+            </div>
+          </div>
+          <div class="pc-content">
+            <div class="pc-meta">
+              <span class="pc-tag">HAUTE COUTURE</span>
+              <span class="pc-year">2026</span>
+            </div>
+            <h3 class="pc-title">Gloryn — High Fashion Atelier</h3>
+            <p class="pc-desc">Luxury fashion lookbook &amp; e-commerce experience designed for instant checkout speeds and rich visuals.</p>
+            <div class="pc-action">
+              <span>VIEW FULL CASE STUDY</span>
+              <span class="pc-arrow">↗</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5: Aurora -->
+        <div class="portfolio-card" onclick="openProjectModal(4)" data-project="4">
+          <div class="pc-image-wrap">
+            <img src="assets/orbit/aurora.jpg" alt="Aurora" loading="lazy" />
+            <div class="pc-badge">+280% CONVERSION</div>
+            <div class="pc-overlay">
+              <span>EXPLORE CASE STUDY ↗</span>
+            </div>
+          </div>
+          <div class="pc-content">
+            <div class="pc-meta">
+              <span class="pc-tag">RETAIL &amp; FASHION</span>
+              <span class="pc-year">2026</span>
+            </div>
+            <h3 class="pc-title">Aurora — Swimwear Storefront</h3>
+            <p class="pc-desc">Editorial e-commerce platform built for sub-second checkout speeds and high-impact visual conversion.</p>
+            <div class="pc-action">
+              <span>VIEW FULL CASE STUDY</span>
+              <span class="pc-arrow">↗</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /portfolio-grid -->
+
+      <div class="work-bottom-cta">
+        <a href="#contact" class="btn-lime-pill">HAVE A PROJECT IN MIND? START HERE →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       SECTION: TRACK RECORD
+  ══════════════════════════════════════════════════════ -->
+  <section class="section-track" data-section-bg="#efece6">
+    <div class="section-container">
+      <div class="sec-label">TRACK RECORD</div>
+      <div class="sec-line"></div>
+
+      <div class="track-grid">
+        <div class="track-item">
+          <div class="track-num">6+</div>
+          <p class="track-text">Years building bespoke web experiences</p>
+        </div>
+        <div class="track-item">
+          <div class="track-num">50+</div>
+          <p class="track-text">Businesses launched and supported</p>
+        </div>
+        <div class="track-item">
+          <div class="track-num">99.4%</div>
+          <p class="track-text">On-time delivery &amp; launch rate</p>
+        </div>
+        <div class="track-item">
+          <div class="track-num">3.8x</div>
+          <p class="track-text">Average conversion rate increase</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       SECTION: WHAT WE DO (SOFT POWDER BLUE BG #b6d5e5)
+  ══════════════════════════════════════════════════════ -->
+  <section id="services" class="section-services" data-section-bg="#b6d5e5">
+    <div class="section-container">
+      <div class="sec-label">WHAT WE DO</div>
+
+      <h2 class="services-headline">
+        Most sites fail at one specific job. Ours are built backwards from that job — 
+        <em>the booking, the phone call, the order</em> — and everything else on the page 
+        has to earn its place against it.
+      </h2>
+
+      <div class="sec-line margin-y-sm"></div>
+      <div class="sec-sublabel">INCLUDED IN EVERY PLAN</div>
+
+      <div class="services-columns">
+
+        <!-- Card 1: Design -->
+        <div class="svc-col" id="svc-design" onclick="openServiceModal('design')">
+          <div class="svc-card-inner">
+            <div class="svc-header-box">
+              <span class="svc-num-tag">PILLAR 01</span>
+              <span class="svc-arrow">↗</span>
+            </div>
+            <h3 class="svc-title">Design</h3>
+            <ul class="svc-list">
+              <li>Bespoke editorial UI design tailored to your brand</li>
+              <li>Mobile-first responsive layouts &amp; smooth touch controls</li>
+              <li>Conversion copywriting aimed at driving real sales</li>
+              <li>Micro-animations &amp; smooth interactive 3D card orbits</li>
+              <li>Built around your business, never a pre-bought template</li>
+            </ul>
+          </div>
+          <div class="svc-footer-btn">
+            <span>EXPLORE DETAILS</span>
+            <span class="svc-arrow-sm">↗</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Development -->
+        <div class="svc-col" id="svc-dev" onclick="openServiceModal('dev')">
+          <div class="svc-card-inner">
+            <div class="svc-header-box">
+              <span class="svc-num-tag">PILLAR 02</span>
+              <span class="svc-arrow">↗</span>
+            </div>
+            <h3 class="svc-title">Development</h3>
+            <ul class="svc-list">
+              <li>Next.js / HTML5 modern ultra-fast stack</li>
+              <li>Seamless booking, calendar &amp; scheduling integration</li>
+              <li>Sub-second speed optimization &amp; zero-bloat code</li>
+              <li>Cross-browser compatibility testing</li>
+              <li>Built to scale and remain fast for years</li>
+            </ul>
+          </div>
+          <div class="svc-footer-btn">
+            <span>EXPLORE DETAILS</span>
+            <span class="svc-arrow-sm">↗</span>
+          </div>
+        </div>
+
+        <!-- Card 3: SEO & Growth -->
+        <div class="svc-col" id="svc-seo" onclick="openServiceModal('seo')">
+          <div class="svc-card-inner">
+            <div class="svc-header-box">
+              <span class="svc-num-tag">PILLAR 03</span>
+              <span class="svc-arrow">↗</span>
+            </div>
+            <h3 class="svc-title">SEO &amp; Growth</h3>
+            <ul class="svc-list">
+              <li>Local SEO setup &amp; Google Business Profile optimization</li>
+              <li>On-page structured data &amp; schema.org JSON-LD markup</li>
+              <li>Core Web Vitals 99+ score optimization (LCP, FID, CLS)</li>
+              <li>Keyword strategy &amp; search intent copywriting</li>
+              <li>XML sitemap, robots.txt &amp; instant Google indexing</li>
+              <li>Built to rank from day one — turning searches into calls</li>
+            </ul>
+          </div>
+          <div class="svc-footer-btn">
+            <span>EXPLORE DETAILS</span>
+            <span class="svc-arrow-sm">↗</span>
+          </div>
+        </div>
+
+        <!-- Card 4: Care & Growth -->
+        <div class="svc-col" id="svc-care" onclick="openServiceModal('care')">
+          <div class="svc-card-inner">
+            <div class="svc-header-box">
+              <span class="svc-num-tag">PILLAR 04</span>
+              <span class="svc-arrow">↗</span>
+            </div>
+            <h3 class="svc-title">Care &amp; Growth</h3>
+            <ul class="svc-list">
+              <li>Ultra-fast hosting, SSL security &amp; automated updates</li>
+              <li>24/7 uptime monitoring &amp; daily backups</li>
+              <li>Monthly performance &amp; traffic analytics report</li>
+              <li>Ongoing content edits &amp; conversion optimization</li>
+              <li>We keep it fast, secure and improving — zero effort required</li>
+            </ul>
+          </div>
+          <div class="svc-footer-btn">
+            <span>EXPLORE DETAILS</span>
+            <span class="svc-arrow-sm">↗</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       SECTION: HOW THIS WORKS — mossimo.studio style
+   ══════════════════════════════════════════════════════ -->
+  <section id="process" class="section-process">
+    <div class="section-container">
+
+      <div class="process-layout">
+
+        <!-- LEFT: sticky headline + step pills -->
+        <div class="process-left">
+          <div class="process-left-inner">
+            <div class="sec-label">HOW THIS WORKS</div>
+            <h2 class="process-headline">Four steps,<br /><em>start to finish</em></h2>
+
+            <nav class="process-list" id="procStepNav">
+              <button class="proc-step active" data-step="0" onclick="scrollToStep(0)">
+                <span class="ps-num">01</span>
+                <span class="ps-title">Tell us about your business</span>
+              </button>
+              <button class="proc-step" data-step="1" onclick="scrollToStep(1)">
+                <span class="ps-num">02</span>
+                <span class="ps-title">We design and build</span>
+              </button>
+              <button class="proc-step" data-step="2" onclick="scrollToStep(2)">
+                <span class="ps-num">03</span>
+                <span class="ps-title">Launch and go live</span>
+              </button>
+              <button class="proc-step" data-step="3" onclick="scrollToStep(3)">
+                <span class="ps-num">04</span>
+                <span class="ps-title">We stay on after launch</span>
+              </button>
+            </nav>
+          </div>
+        </div>
+
+        <!-- RIGHT: scrollable content blocks, one per step -->
+        <div class="process-right" id="procRightScroll">
+
+          <div class="proc-content-block" id="procBlock0" data-block="0" data-color="#d9cf6e">
+            <hr class="proc-divider" />
+            <h3 class="proc-block-title">Tell us about your business</h3>
+            <p class="proc-block-desc">We learn your goals, your customers, and what you're actually trying to fix — in under ten minutes. Then a real discovery call, so we actually get to know you.</p>
+          </div>
+
+          <div class="proc-content-block" id="procBlock1" data-block="1" data-color="#9ec0d5">
+            <hr class="proc-divider" />
+            <h3 class="proc-block-title">We design and build</h3>
+            <p class="proc-block-desc">Design, copy, development — all of it. You review, you tell us what's wrong, we refine until it's right.</p>
+          </div>
+
+          <div class="proc-content-block" id="procBlock2" data-block="2" data-color="#a8c9a8">
+            <hr class="proc-divider" />
+            <h3 class="proc-block-title">Launch and go live</h3>
+            <p class="proc-block-desc">Domain, hosting, performance, the lot. We handle the parts that break at 2am, so you hear about them from us and not from a customer.</p>
+          </div>
+
+          <div class="proc-content-block" id="procBlock3" data-block="3" data-color="#e2e2dc">
+            <hr class="proc-divider" />
+            <h3 class="proc-block-title">We stay on after launch</h3>
+            <p class="proc-block-desc">Updates, fixes, new pages. One flat rate, no surprise invoices, no disappearing act.</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       SECTION: ABOUT / PHILOSOPHY
+  ══════════════════════════════════════════════════════ -->
+  <section id="about" class="section-about" data-section-bg="#bdced1">
+    <div class="section-container">
+      <div class="sec-label">WHY WEB WALE</div>
+      <h2 class="services-headline">
+        We build websites for businesses that refuse to blend into standard templates. 
+        <em>Bespoke code, conversion copywriting, and direct developer access.</em>
+      </h2>
+      <div class="sec-line margin-y-sm"></div>
+
+      <div class="about-grid">
+        <div class="ag-col">
+          <h3 class="ag-title">Bespoke Code</h3>
+          <p class="ag-desc">No heavy page builders or pre-made templates. Clean, fast Next.js &amp; HTML code built specifically around your brand identity and business goals.</p>
+        </div>
+        <div class="ag-col">
+          <h3 class="ag-title">Conversion Copywriting</h3>
+          <p class="ag-desc">Every headline, subtext, and call-to-action is written backwards from your primary business objective — turning casual visitors into booked calls and paid orders.</p>
+        </div>
+        <div class="ag-col">
+          <h3 class="ag-title">Direct Developer Access</h3>
+          <p class="ag-desc">You talk directly to whoever writes your code. No account managers, middle layers, or miscommunications translating your feedback.</p>
+        </div>
+        <div class="ag-col">
+          <h3 class="ag-title">Flat Rate &amp; Zero Surprises</h3>
+          <p class="ag-desc">Clear up-front pricing and optional care plans so your site stays fast, secure, and updated without unexpected monthly fees or hidden costs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       SECTION: NEXT STEP / CONTACT (SOFT DUSTY PINK BG #cdaec7)
+  ══════════════════════════════════════════════════════ -->
+  <section id="contact" class="section-contact" data-section-bg="#cdaec7">
+    <div class="section-container">
+      <div class="sec-label">NEXT STEP</div>
+
+      <div class="contact-header-wrap">
+        <h2 class="contact-title">
+          Tell us what the site<br />has to <em>do</em>
+        </h2>
+        <p class="contact-subtext">
+          A short form, then a real reply from whoever will build it — usually within 24 hours. No discovery call you have to dress up for.
+        </p>
+
+        <div class="contact-buttons-row">
+          <a href="mailto:damandeeps107@gmail.com" class="btn-lime-pill">START A PROJECT</a>
+          <a href="#" onclick="openModal('faqModal'); return false;" class="btn-text-link">QUESTIONS FIRST →</a>
+        </div>
+      </div>
+
+      <div class="sec-line margin-y"></div>
+
+      <!-- Direct Contact Callout Grid -->
+      <div class="direct-email-section">
+        <div class="de-intro">Reach us directly via Email, Phone/WhatsApp or Instagram</div>
+        <div class="contact-links-grid">
+          <a href="mailto:damandeeps107@gmail.com" class="de-card">
+            <span class="de-label">EMAIL</span>
+            <span class="de-val">damandeeps107@gmail.com</span>
+          </a>
+          <a href="tel:+917626991735" class="de-card">
+            <span class="de-label">PHONE / WHATSAPP</span>
+            <span class="de-val">+91 7626991735</span>
+          </a>
+          <a href="https://instagram.com/webwale.in" target="_blank" rel="noopener" class="de-card">
+            <span class="de-label">INSTAGRAM</span>
+            <span class="de-val">@webwale.in</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="form-container" id="contact-form">
+        <form class="c-form" onsubmit="handleForm(event)">
+          <div class="f-row">
+            <div class="fg"><label>Name</label><input type="text" placeholder="Your name" required /></div>
+            <div class="fg"><label>Business Name</label><input type="text" placeholder="Brand or business name" /></div>
+          </div>
+          <div class="f-row">
+            <div class="fg"><label>Email</label><input type="email" placeholder="you@company.com" required /></div>
+            <div class="fg"><label>Service</label>
+              <select>
+                <option value="">Select a service...</option>
+                <option>Custom Web Design</option>
+                <option>E-Commerce Store</option>
+                <option>Website Redesign</option>
+                <option>SEO &amp; Growth</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg"><label>What should the site do?</label><textarea rows="3" placeholder="Tell us about your business goals..."></textarea></div>
+          <button type="submit" class="btn-dark-submit" id="submitBtn">Send Message ↗</button>
+        </form>
+      </div>
+
+      <!-- Footer Columns -->
+      <div class="footer-grid">
+        <div class="fg-col">
+          <h4>WHAT WE DO</h4>
+          <a href="#" onclick="openServiceModal('design'); return false;">Design ↗</a>
+          <a href="#" onclick="openServiceModal('dev'); return false;">Development ↗</a>
+          <a href="#" onclick="openServiceModal('seo'); return false;">SEO ↗</a>
+          <a href="#" onclick="openServiceModal('care'); return false;">Care and growth ↗</a>
+        </div>
+        <div class="fg-col">
+          <h4>START HERE</h4>
+          <a href="#work">The work</a>
+          <a href="#" onclick="openServiceModal('design'); return false;">Services &amp; Pricing</a>
+          <a href="#" onclick="openModal('aboutModal'); return false;">About Web Wale ↗</a>
+          <a href="#" onclick="openModal('referenceModal'); return false;">Craftsmanship Standards ↗</a>
+          <a href="#" onclick="openModal('faqModal'); return false;">Questions &amp; FAQ ↗</a>
+        </div>
+        <div class="fg-col">
+          <h4>LEGAL</h4>
+          <a href="#" onclick="openModal('privacyModal'); return false;">Privacy Policy</a>
+          <a href="#" onclick="openModal('termsModal'); return false;">Terms of Service</a>
+        </div>
+        <div class="fg-col brand-col">
+          <div class="fg-logo"><img src="assets/webwale-logo-transparent.png" alt="webwale.in" class="footer-logo-img" /></div>
+          <p>Based in India.<br />Working worldwide.</p>
+        </div>
+      </div>
+
+      <div class="copyright-bar">
+        © 2026 webwale.in — All rights reserved. Editorial web studio.
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FULL PROCESS & HOW THIS WORKS MODAL -->
+  <div id="processModal" class="modal-overlay project-modal-overlay" onclick="closeModalOnOverlay(event, 'processModal')">
+    <div class="project-modal-container">
+      <button class="project-modal-close" onclick="closeModal('processModal')" aria-label="Close Process Modal">✕</button>
+
+      <div class="pm-header">
+        <div class="pm-meta">
+          <span class="pm-tag">HOW THIS WORKS • 4-STEP LAUNCH FRAMEWORK</span>
+          <span class="pm-year">• BESPOKE PROCESS</span>
+        </div>
+        <h2 class="pm-title">From initial conversation to live Google launch in 2 to 4 weeks.</h2>
+        <p class="pm-subtitle">Here is our exact 4-step blueprint for taking your brand from vision to high-converting digital experience with zero stress and 100% transparency.</p>
+      </div>
+
+      <!-- Step Navigation Tabs inside Modal -->
+      <div class="pm-step-tabs">
+        <button class="pm-tab active" onclick="switchProcessModalTab(0)" id="pmTab0">01 DISCOVERY</button>
+        <button class="pm-tab" onclick="switchProcessModalTab(1)" id="pmTab1">02 CRAFTSMANSHIP</button>
+        <button class="pm-tab" onclick="switchProcessModalTab(2)" id="pmTab2">03 DEPLOYMENT</button>
+        <button class="pm-tab" onclick="switchProcessModalTab(3)" id="pmTab3">04 PARTNERSHIP</button>
+      </div>
+
+      <div class="process-modal-cards">
+        <!-- Step 01 -->
+        <div class="pm-step-card active" id="procCard0">
+          <div class="pm-sc-header">
+            <span class="pm-sc-num">STEP 01</span>
+            <span class="pm-sc-tag">ALIGNMENT &amp; STRATEGY</span>
+          </div>
+          <h3 class="pm-sc-title">Tell Us About Your Business</h3>
+          <p class="pm-sc-desc">A brief questionnaire or a casual 15-minute call. We figure out what your site needs to achieve (sales, bookings, calls), who your target customers are, and what makes your business unique in your market.</p>
+          <div class="pm-sc-grid">
+            <div class="pm-sc-box">
+              <h4>DELIVERABLES</h4>
+              <ul>
+                <li>✓ Target audience &amp; competitor benchmark analysis</li>
+                <li>✓ Brand identity, typography &amp; visual moodboard</li>
+                <li>✓ Fixed upfront flat-rate quote &amp; timeline guarantee</li>
+                <li>✓ 100% clarity before writing a single line of code</li>
+              </ul>
+            </div>
+            <div class="pm-sc-box">
+              <h4>TIMELINE &amp; DEDICATION</h4>
+              <p><strong>Duration:</strong> Days 1 – 3</p>
+              <p><strong>Your Effort:</strong> ~15-20 minutes of conversation</p>
+              <p><strong>Outcome:</strong> Clear roadmap, fixed contract, zero surprises</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 02 -->
+        <div class="pm-step-card" id="procCard1">
+          <div class="pm-sc-header">
+            <span class="pm-sc-num">STEP 02</span>
+            <span class="pm-sc-tag">BESPOKE DESIGN &amp; CODE</span>
+          </div>
+          <h3 class="pm-sc-title">We Design and Build</h3>
+          <p class="pm-sc-desc">We craft full interactive Figma mockups, write conversion copywriting, and engineer clean Next.js/HTML code built specifically for your brand — zero pre-bought templates or bloated page builders.</p>
+          <div class="pm-sc-grid">
+            <div class="pm-sc-box">
+              <h4>DELIVERABLES</h4>
+              <ul>
+                <li>✓ 100% Bespoke Figma mockups &amp; editorial layout design</li>
+                <li>✓ Mobile-first responsive engineering &amp; 60fps Lenis scroll</li>
+                <li>✓ Conversion copywriting written backwards from sales goals</li>
+                <li>✓ Interactive staging link for real-time progress reviews</li>
+              </ul>
+            </div>
+            <div class="pm-sc-box">
+              <h4>TIMELINE &amp; DEDICATION</h4>
+              <p><strong>Duration:</strong> Week 1 – 2</p>
+              <p><strong>Your Effort:</strong> Simple feedback on staging links</p>
+              <p><strong>Outcome:</strong> Pixel-perfect frontend with sub-second speed</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 03 -->
+        <div class="pm-step-card" id="procCard2">
+          <div class="pm-sc-header">
+            <span class="pm-sc-num">STEP 03</span>
+            <span class="pm-sc-tag">DEPLOYMENT &amp; INDEXING</span>
+          </div>
+          <h3 class="pm-sc-title">Launch and Go Live</h3>
+          <p class="pm-sc-desc">Domain, hosting, SSL security, performance optimization, XML sitemaps, and Schema.org markup. We handle every technical detail and index your new site directly on Google Search Console.</p>
+          <div class="pm-sc-grid">
+            <div class="pm-sc-box">
+              <h4>DELIVERABLES</h4>
+              <ul>
+                <li>✓ Core Web Vitals 99+ score speed audit &amp; CDN deployment</li>
+                <li>✓ Schema.org JSON-LD structured data &amp; local SEO setup</li>
+                <li>✓ Instant Google Search Console indexing &amp; domain launch</li>
+                <li>✓ Cross-browser compatibility &amp; mobile touch testing</li>
+              </ul>
+            </div>
+            <div class="pm-sc-box">
+              <h4>TIMELINE &amp; DEDICATION</h4>
+              <p><strong>Duration:</strong> Week 2 – 3</p>
+              <p><strong>Your Effort:</strong> Final signoff &amp; domain DNS approval</p>
+              <p><strong>Outcome:</strong> 100% Live website indexed on Google</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 04 -->
+        <div class="pm-step-card" id="procCard3">
+          <div class="pm-sc-header">
+            <span class="pm-sc-num">STEP 04</span>
+            <span class="pm-sc-tag">PARTNERSHIP &amp; CARE</span>
+          </div>
+          <h3 class="pm-sc-title">We Stay On After Launch</h3>
+          <p class="pm-sc-desc">Flat rate, zero surprises. 24/7 uptime monitoring, daily backups, monthly traffic analytics reports, and ongoing content updates so your website stays fast, secure, and continuously improving.</p>
+          <div class="pm-sc-grid">
+            <div class="pm-sc-box">
+              <h4>DELIVERABLES</h4>
+              <ul>
+                <li>✓ 24/7 uptime monitoring &amp; daily off-site cloud backups</li>
+                <li>✓ Monthly performance &amp; traffic analytics insights report</li>
+                <li>✓ Direct developer access via WhatsApp &amp; Email for quick edits</li>
+                <li>✓ Continuous speed, security &amp; conversion optimization</li>
+              </ul>
+            </div>
+            <div class="pm-sc-box">
+              <h4>TIMELINE &amp; DEDICATION</h4>
+              <p><strong>Duration:</strong> Ongoing Partnership</p>
+              <p><strong>Your Effort:</strong> Send edits via WhatsApp / Email anytime</p>
+              <p><strong>Outcome:</strong> Stress-free digital growth &amp; active support</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /process-modal-cards -->
+
+      <div class="pm-cta-wrap" style="margin-top: 2.5rem;">
+        <a href="#contact" class="btn-project-cta" onclick="closeModal('processModal')">
+          READY TO START YOUR BUILD? CONTACT US DIRECTLY ↗
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PRIVACY POLICY MODAL -->
+  <div id="privacyModal" class="modal-overlay" onclick="closeModalOnOverlay(event, 'privacyModal')">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('privacyModal')">×</button>
+      <div class="modal-body">
+        <h2>Privacy Policy</h2>
+        <p>Last updated: October 2026</p>
+        <p>At Web Wale (webwale.in), we respect your privacy and are committed to protecting any personal information you share with us.</p>
+        <h3>Information We Collect</h3>
+        <p>We collect information you provide directly, such as your name, email address, phone number, and project details when you contact us or fill out our inquiry forms.</p>
+        <h3>How We Use Information</h3>
+        <p>We use your information solely to reply to inquiries, deliver services, provide project updates, and improve your digital experience.</p>
+        <h3>Contact Us</h3>
+        <p>If you have questions regarding this privacy policy, please contact us at damandeeps107@gmail.com or +91 7626991735.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FULL ABOUT WEB WALE MODAL (Genuine & Emotional Story) -->
+  <div id="aboutModal" class="modal-overlay project-modal-overlay" onclick="closeModalOnOverlay(event, 'aboutModal')">
+    <div class="project-modal-container">
+      <button class="project-modal-close" onclick="closeModal('aboutModal')" aria-label="Close About Modal">✕</button>
+
+      <div class="pm-header">
+        <div class="pm-meta">
+          <span class="pm-tag">OUR STORY • ABOUT WEB WALE</span>
+          <span class="pm-year">• EST. 2020</span>
+        </div>
+        <h2 class="pm-title">We don't build websites to fill a template. We build digital assets that give businesses unfair advantages.</h2>
+        <p class="pm-subtitle">Web Wale was born from a simple frustration: seeing incredible local and international businesses trapped inside slow, generic, pre-bought website templates that failed to convert visitors into clients.</p>
+      </div>
+
+      <div class="pm-hero-img-wrap service-hero-card">
+        <div class="svc-hero-inner">
+          <span class="pm-gb-dot"></span>
+          <span>"Every brand has a soul. Our work is to translate that soul into an ultra-fast, editorial web experience that people notice, remember, and trust instantly." — Web Wale Team</span>
+        </div>
+      </div>
+
+      <div class="pm-grid">
+        <div class="pm-col-left">
+          <div class="pm-section-block">
+            <h4>OUR PHILOSOPHY &amp; PROMISE</h4>
+            <p>
+              We believe a business website should be its single hardest-working employee. It shouldn't just look pretty on desktop — it must load under half a second on a mobile phone, tell a compelling story, and guide every visitor seamlessly towards a booking, call, or order.
+            </p>
+            <p style="margin-top: 1rem;">
+              When you work with Web Wale, you talk directly to the engineers and designers building your site. No account managers playing middleman, no endless ticket queues, and no hidden maintenance fees.
+            </p>
+          </div>
+
+          <div class="pm-section-block">
+            <h4>OUR FOUR NON-NEGOTIABLES</h4>
+            <ul class="pm-deliverables-list">
+              <li><strong>Zero Template Bloat:</strong> Every line of Next.js &amp; HTML code is written specifically for your project.</li>
+              <li><strong>Radical Speed:</strong> 99+ Core Web Vitals performance guarantee — pages load in sub-second time.</li>
+              <li><strong>Conversion Copywriting:</strong> Words engineered to turn passive readers into paying clients.</li>
+              <li><strong>Direct Access:</strong> Direct developer &amp; designer communication via WhatsApp &amp; Email.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pm-col-right">
+          <div class="pm-metrics-card">
+            <h4>STUDIO TRACK RECORD</h4>
+            <div class="pm-stats-grid">
+              <div class="pm-stat-box">
+                <span class="pm-stat-val">50+</span>
+                <span class="pm-stat-lbl">Launches Completed</span>
+              </div>
+              <div class="pm-stat-box">
+                <span class="pm-stat-val">99.4%</span>
+                <span class="pm-stat-lbl">On-Time Delivery</span>
+              </div>
+              <div class="pm-stat-box">
+                <span class="pm-stat-val">3.8x</span>
+                <span class="pm-stat-lbl">Avg Growth</span>
+              </div>
+              <div class="pm-stat-box">
+                <span class="pm-stat-val">24/7</span>
+                <span class="pm-stat-lbl">Direct Support</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pm-tech-block">
+            <h4>CONTACT DIRECTLY</h4>
+            <div class="pm-tech-tags">
+              <span>damandeeps107@gmail.com</span>
+              <span>+91 7626991735</span>
+              <span>@webwale.in</span>
+            </div>
+          </div>
+
+          <div class="pm-cta-wrap">
+            <a href="#contact" class="btn-project-cta" onclick="closeModal('aboutModal')">
+              START YOUR PROJECT WITH US ↗
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FULL FREQUENTLY ASKED QUESTIONS MODAL (Genuine Q&A) -->
+  <div id="faqModal" class="modal-overlay project-modal-overlay" onclick="closeModalOnOverlay(event, 'faqModal')">
+    <div class="project-modal-container">
+      <button class="project-modal-close" onclick="closeModal('faqModal')" aria-label="Close FAQ Modal">✕</button>
+
+      <div class="pm-header">
+        <div class="pm-meta">
+          <span class="pm-tag">FREQUENTLY ASKED QUESTIONS</span>
+          <span class="pm-year">• TRANSPARENT ANSWERS</span>
+        </div>
+        <h2 class="pm-title">Everything you need to know before starting a build with Web Wale.</h2>
+        <p class="pm-subtitle">No corporate jargon or hidden fine print. Here are honest, direct answers to common questions about our timeline, pricing, ownership, and performance guarantees.</p>
+      </div>
+
+      <div class="faq-accordion-grid">
+        <div class="faq-item">
+          <h4>Q: How long does a custom web build take from start to finish?</h4>
+          <p>A: Most custom builds take between 2 to 4 weeks. We follow a strict 4-step launch framework (Discovery → Bespoke Design → High-Performance Code → Launch &amp; Indexing). You receive regular interactive staging links throughout the process.</p>
+        </div>
+
+        <div class="faq-item">
+          <h4>Q: Do I own 100% of my site, domain, and code after launch?</h4>
+          <p>A: Absolutely yes. Upon final launch, you own every single asset, graphic, domain name, and line of code. We believe in 100% client ownership with zero vendor lock-in.</p>
+        </div>
+
+        <div class="faq-item">
+          <h4>Q: How does pricing work? Are there any hidden monthly fees?</h4>
+          <p>A: We work on transparent flat-rate quotes. You pay a 50% deposit to initiate design and the remaining 50% upon final launch approval. There are zero surprise monthly fees unless you choose our optional Care &amp; Growth hosting plan.</p>
+        </div>
+
+        <div class="faq-item">
+          <h4>Q: How do you guarantee sub-second load speeds and 99+ Core Web Vitals?</h4>
+          <p>A: We hand-code our frontends with clean HTML5, Next.js, and lightweight CSS instead of bloated WordPress templates or 30+ third-party plugins. We compress all images into WebP formats and leverage global CDN caching.</p>
+        </div>
+
+        <div class="faq-item">
+          <h4>Q: Will my site rank on Google Search?</h4>
+          <p>A: Yes. Every website we launch comes pre-configured with technical on-page SEO, Schema.org JSON-LD rich snippets, XML sitemap generation, and immediate Google Search Console indexing.</p>
+        </div>
+
+        <div class="faq-item">
+          <h4>Q: What if I need updates or changes after the site goes live?</h4>
+          <p>A: We offer our zero-stress Care &amp; Growth plan for monthly content updates, security patches, and traffic analytics. Alternatively, you can reach out for quick ad-hoc updates anytime.</p>
+        </div>
+      </div>
+
+      <div class="pm-cta-wrap" style="margin-top: 2rem;">
+        <a href="#contact" class="btn-project-cta" onclick="closeModal('faqModal')">
+          STILL HAVE A QUESTION? ASK US DIRECTLY ↗
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FULL CRAFTSMANSHIP & REFERENCE PHILOSOPHY MODAL -->
+  <div id="referenceModal" class="modal-overlay project-modal-overlay" onclick="closeModalOnOverlay(event, 'referenceModal')">
+    <div class="project-modal-container">
+      <button class="project-modal-close" onclick="closeModal('referenceModal')" aria-label="Close Reference Modal">✕</button>
+
+      <div class="pm-header">
+        <div class="pm-meta">
+          <span class="pm-tag">CRAFTSMANSHIP &amp; STANDARDS</span>
+          <span class="pm-year">• DESIGN SYSTEM</span>
+        </div>
+        <h2 class="pm-title">Inspired by global editorial fashion, luxury architecture, and high-end studio websites.</h2>
+        <p class="pm-subtitle">Our design language combines timeless editorial serif typography, curated neutral HSL color palettes, liquid Lenis scrolling motion, and tactile glassmorphic depth.</p>
+      </div>
+
+      <div class="pm-grid">
+        <div class="pm-col-left">
+          <div class="pm-section-block">
+            <h4>EDITORIAL TYPOGRAPHY &amp; SPACING</h4>
+            <p>
+              We pair Newsreader (a high-fashion serif) with Inter (a clean modern sans-serif) to achieve the editorial feel of luxury print journals like Vogue, Architectural Digest, and Mossimo.
+            </p>
+          </div>
+          <div class="pm-section-block">
+            <h4>GLASSMORPHISM &amp; MORPHIC DEPTH</h4>
+            <p>
+              Layered translucent glass cards (`backdrop-filter: blur(32px)`), subtle inner highlights, and organic depth shadows create an interface that feels responsive, alive, and ultra-premium.
+            </p>
+          </div>
+        </div>
+
+        <div class="pm-col-right">
+          <div class="pm-metrics-card">
+            <h4>DESIGN SYSTEM SPECS</h4>
+            <div class="pm-stats-grid">
+              <div class="pm-stat-box">
+                <span class="pm-stat-val">60 FPS</span>
+                <span class="pm-stat-lbl">Fluid Motion</span>
+              </div>
+              <div class="pm-stat-box">
+                <span class="pm-stat-val">32px</span>
+                <span class="pm-stat-lbl">Glass Blur</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pm-cta-wrap">
+            <a href="#contact" class="btn-project-cta" onclick="closeModal('referenceModal')">
+              CREATE YOUR BESPOKE BUILD ↗
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TERMS OF SERVICE MODAL -->
+  <div id="termsModal" class="modal-overlay" onclick="closeModalOnOverlay(event, 'termsModal')">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('termsModal')">×</button>
+      <div class="modal-body">
+        <h2>Terms of Service</h2>
+        <p>Last updated: October 2026</p>
+        <p>Welcome to Web Wale. By accessing or using our website and services, you agree to comply with and be bound by these terms.</p>
+        <h3>Services &amp; Intellectual Property</h3>
+        <p>All custom design and code assets created by Web Wale are delivered according to project agreements. Clients receive full rights upon final payment.</p>
+        <h3>Direct Contact</h3>
+        <p>For custom quotes, support, or inquiries, reach out directly to damandeeps107@gmail.com or via Instagram @webwale.in.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FULL SERVICE & FEATURE DETAIL MODAL (Glassmorphism UI) -->
+  <div id="serviceDetailModal" class="modal-overlay project-modal-overlay" onclick="closeModalOnOverlay(event, 'serviceDetailModal')">
+    <div class="project-modal-container">
+      <button class="project-modal-close" onclick="closeModal('serviceDetailModal')" aria-label="Close Service Detail">✕</button>
+
+      <div class="pm-header">
+        <div class="pm-meta">
+          <span class="pm-tag" id="svcTag">SERVICE PILLAR • DESIGN</span>
+        </div>
+        <h2 class="pm-title" id="svcTitle">Bespoke Editorial UI/UX Design</h2>
+        <p class="pm-subtitle" id="svcSubtitle">Custom visual systems crafted specifically around your brand identity — zero templates, zero generic page builders.</p>
+      </div>
+
+      <div class="pm-hero-img-wrap service-hero-card">
+        <div class="svc-hero-inner">
+          <span class="pm-gb-dot"></span>
+          <span id="svcSummary">We design websites that feel like opening a luxury magazine. Every layout, typography choice, color palette, and micro-animation is engineered backwards from your business goal — turning casual browsers into booked calls and paid customers.</span>
+        </div>
+      </div>
+
+      <div class="pm-grid">
+        <div class="pm-col-left">
+          <div class="pm-section-block">
+            <h4>WHAT WE DELIVER</h4>
+            <ul class="pm-deliverables-list" id="svcDeliverables">
+              <li>100% Bespoke editorial UI/UX layout crafted from scratch in Figma</li>
+              <li>Mobile-first responsive design optimized for iOS &amp; Android gestures</li>
+              <li>High-conversion editorial copywriting that articulates your value</li>
+              <li>Micro-animations, smooth glassmorphism depth &amp; 3D interactive card orbits</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pm-col-right">
+          <div class="pm-metrics-card">
+            <h4>SERVICE HIGHLIGHTS</h4>
+            <div class="pm-stats-grid" id="svcStats">
+              <div class="pm-stat-box">
+                <span class="pm-stat-val">100%</span>
+                <span class="pm-stat-lbl">Custom Design</span>
+              </div>
+              <div class="pm-stat-box">
+                <span class="pm-stat-val">3.8x</span>
+                <span class="pm-stat-lbl">Avg Conversion</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pm-tech-block">
+            <h4>TOOLS &amp; STANDARDS</h4>
+            <div class="pm-tech-tags" id="svcTechTags">
+              <span>Figma</span>
+              <span>Newsreader Serif</span>
+              <span>CSS Glassmorphism</span>
+            </div>
+          </div>
+
+          <div class="pm-cta-wrap">
+            <a href="#contact" class="btn-project-cta" onclick="closeModal('serviceDetailModal')">
+              GET STARTED WITH THIS SERVICE ↗
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FULL PROJECT DETAIL CASE STUDY MODAL (Glassmorphism & Morphism UI) -->
+  <div id="projectDetailModal" class="modal-overlay project-modal-overlay" onclick="closeModalOnOverlay(event, 'projectDetailModal')">
+    <div class="project-modal-container">
+      <button class="project-modal-close" onclick="closeModal('projectDetailModal')" aria-label="Close Case Study">✕</button>
+
+      <div class="pm-header">
+        <div class="pm-meta">
+          <span class="pm-tag" id="pmCat">Food &amp; Drink</span>
+          <span class="pm-year" id="pmYear">• 2026 CASE STUDY</span>
+        </div>
+        <h2 class="pm-title" id="pmTitle">Da Maria — Italian Coastal Dining</h2>
+        <p class="pm-subtitle" id="pmSubtitle">Bespoke reservation engine &amp; high-conversion web platform built to turn table viewers into instant diners.</p>
+      </div>
+
+      <div class="pm-hero-img-wrap">
+        <div class="pm-hero-img" id="pmHeroImg"></div>
+        <div class="pm-glass-badge">
+          <span class="pm-gb-dot"></span> LIVE SHOWCASE ACTIVE
+        </div>
+      </div>
+
+      <div class="pm-grid">
+        <div class="pm-col-left">
+          <div class="pm-section-block">
+            <h4>THE CHALLENGE</h4>
+            <p id="pmChallenge">
+              The existing venue website struggled with mobile load times and relied on third-party booking widgets that charged heavy commissions per table reservation. They needed a high-fashion, editorial digital presence matching their coastal venue atmosphere while keeping booking conversions 100% direct.
+            </p>
+          </div>
+
+          <div class="pm-section-block">
+            <h4>OUR SOLUTION &amp; DELIVERABLES</h4>
+            <ul class="pm-deliverables-list" id="pmDeliverables">
+              <li>Custom Next.js &amp; HTML5 direct reservation engine with real-time slot selection</li>
+              <li>Editorial typography and micro-interactions optimized for luxury mobile screens</li>
+              <li>Sub-second page speeds with automated image compression and WebP conversion</li>
+              <li>Localized SEO &amp; Schema.org Restaurant rich snippet integration</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pm-col-right">
+          <div class="pm-metrics-card">
+            <h4>KEY PERFORMANCE METRICS</h4>
+            <div class="pm-stats-grid" id="pmStats">
+              <div class="pm-stat-box">
+                <span class="pm-stat-val">+340%</span>
+                <span class="pm-stat-lbl">Table Bookings</span>
+              </div>
+              <div class="pm-stat-box">
+                <span class="pm-stat-val">99 / 100</span>
+                <span class="pm-stat-lbl">Lighthouse Speed</span>
+              </div>
+              <div class="pm-stat-box">
+                <span class="pm-stat-val">&lt; 0.4s</span>
+                <span class="pm-stat-lbl">Load Time</span>
+              </div>
+              <div class="pm-stat-box">
+                <span class="pm-stat-val">0%</span>
+                <span class="pm-stat-lbl">Widget Fees</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pm-tech-block">
+            <h4>TECH &amp; ARCHITECTURE</h4>
+            <div class="pm-tech-tags" id="pmTechTags">
+              <span>Next.js</span>
+              <span>GSAP Motion</span>
+              <span>HTML5 / CSS Glass</span>
+              <span>Schema.org</span>
+              <span>Lenis Scroll</span>
+            </div>
+          </div>
+
+          <div class="pm-cta-wrap">
+            <a href="#contact" class="btn-project-cta" onclick="closeModal('projectDetailModal')">
+              START A SIMILAR PROJECT ↗
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">✓ Message received! We'll reply within 24 hours.</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
