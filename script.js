@@ -21,8 +21,17 @@ window.setModalPreviewMode = function(mode) {
 window.openModal = function(id) {
   const modal = document.getElementById(id);
   if (modal) {
+    if (window.lenis && typeof window.lenis.stop === "function") {
+      window.lenis.stop();
+    }
     modal.classList.add("active");
     document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+
+    const scrollable = modal.querySelector(".project-modal-container, .modal-content");
+    if (scrollable) {
+      scrollable.scrollTop = 0;
+    }
   }
 };
 
@@ -30,7 +39,14 @@ window.closeModal = function(id) {
   const modal = document.getElementById(id);
   if (modal) {
     modal.classList.remove("active");
-    document.body.style.overflow = "";
+    const activeModals = document.querySelectorAll(".modal-overlay.active");
+    if (activeModals.length === 0) {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+      if (window.lenis && typeof window.lenis.start === "function") {
+        window.lenis.start();
+      }
+    }
   }
 };
 
@@ -89,6 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
     touchMultiplier: 1.2,
   });
 
+  window.lenis = lenis;
   lenis.on("scroll", ScrollTrigger.update);
 
   /* ── 2. LOADER ─────────────────────────────────────────── */
@@ -496,28 +513,26 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1200);
   };
 
-  /* ── 11. LEGAL MODAL HANDLERS ──────────────────────────── */
-  window.openModal = function(id) {
-    const modal = document.getElementById(id);
-    if (modal) {
-      modal.classList.add("active");
-      document.body.style.overflow = "hidden";
+  /* ── 11. LEGAL & PROJECT MODAL SCROLL & ESC HANDLERS ────── */
+  // ESC key closes active modal
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      const activeModal = document.querySelector(".modal-overlay.active");
+      if (activeModal && activeModal.id) {
+        window.closeModal(activeModal.id);
+      }
     }
-  };
+  });
 
-  window.closeModal = function(id) {
-    const modal = document.getElementById(id);
-    if (modal) {
-      modal.classList.remove("active");
-      document.body.style.overflow = "";
-    }
-  };
-
-  window.closeModalOnOverlay = function(e, id) {
-    if (e.target.classList.contains("modal-overlay")) {
-      window.closeModal(id);
-    }
-  };
+  // Ensure wheel & touch events inside modal content scroll natively without bubbling to window
+  document.querySelectorAll(".modal-content, .project-modal-container").forEach((el) => {
+    el.addEventListener("wheel", (e) => {
+      e.stopPropagation();
+    }, { passive: true });
+    el.addEventListener("touchmove", (e) => {
+      e.stopPropagation();
+    }, { passive: true });
+  });
 
         /* ── 12. FULL PROJECT DETAIL CASE STUDY MODAL ────────────── */
   const projectDetails = [

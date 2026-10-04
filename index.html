@@ -50,7 +50,7 @@
     <div class="nav-links">
       <a href="#work">Portfolio</a>
       <a href="#services">Services</a>
-      <a href="#" onclick="openModal('faqModal'); return false;">How it works ↗</a>
+      <a href="#" onclick="openModal('processModal'); return false;">How it works ↗</a>
       <a href="#" onclick="openModal('aboutModal'); return false;">About ↗</a>
       <a href="#testimonials">Reviews</a>
       <a href="#pricing">Pricing</a>
@@ -65,7 +65,7 @@
     <div class="mm-links">
       <a href="#work" onclick="closeMenu()">Portfolio</a>
       <a href="#services" onclick="closeMenu()">Services</a>
-      <a href="#" onclick="closeMenu(); openModal('faqModal'); return false;">How it works ↗</a>
+      <a href="#" onclick="closeMenu(); openModal('processModal'); return false;">How it works ↗</a>
       <a href="#" onclick="closeMenu(); openModal('aboutModal'); return false;">About ↗</a>
       <a href="#testimonials" onclick="closeMenu()">Reviews</a>
       <a href="#pricing" onclick="closeMenu()">Pricing</a>
@@ -857,7 +857,7 @@
         <div class="fg-col">
           <h4>START HERE</h4>
           <a href="#work">The work</a>
-          <a href="#" onclick="openServiceModal('design'); return false;">Services &amp; Pricing</a>
+          <a href="#" onclick="openModal('processModal'); return false;">How it works ↗</a>
           <a href="#" onclick="openModal('aboutModal'); return false;">About Web Wale ↗</a>
           <a href="#" onclick="openModal('referenceModal'); return false;">Craftsmanship Standards ↗</a>
           <a href="#" onclick="openModal('faqModal'); return false;">Questions &amp; FAQ ↗</a>
@@ -881,8 +881,8 @@
   </section>
 
   <!-- FULL PROCESS & HOW THIS WORKS MODAL -->
-  <div id="processModal" class="modal-overlay project-modal-overlay" onclick="closeModalOnOverlay(event, 'processModal')">
-    <div class="project-modal-container">
+  <div id="processModal" class="modal-overlay project-modal-overlay" data-lenis-prevent onclick="closeModalOnOverlay(event, 'processModal')">
+    <div class="project-modal-container" data-lenis-prevent>
       <button class="project-modal-close" onclick="closeModal('processModal')" aria-label="Close Process Modal">✕</button>
 
       <div class="pm-header">
@@ -1023,26 +1023,129 @@
   </div>
 
   <!-- PRIVACY POLICY MODAL -->
-  <div id="privacyModal" class="modal-overlay" onclick="closeModalOnOverlay(event, 'privacyModal')">
-    <div class="modal-content">
-      <button class="modal-close" onclick="closeModal('privacyModal')">×</button>
+  <div id="privacyModal" class="modal-overlay" data-lenis-prevent onclick="closeModalOnOverlay(event, 'privacyModal')">
+    <div class="modal-content" data-lenis-prevent>
+      <button class="modal-close" onclick="closeModal('privacyModal')" aria-label="Close Privacy Policy">×</button>
       <div class="modal-body">
-        <h2>Privacy Policy</h2>
-        <p>Last updated: October 2026</p>
-        <p>At Web Wale (webwale.in), we respect your privacy and are committed to protecting any personal information you share with us.</p>
-        <h3>Information We Collect</h3>
-        <p>We collect information you provide directly, such as your name, email address, phone number, and project details when you contact us or fill out our inquiry forms.</p>
-        <h3>How We Use Information</h3>
-        <p>We use your information solely to reply to inquiries, deliver services, provide project updates, and improve your digital experience.</p>
-        <h3>Contact Us</h3>
-        <p>If you have questions regarding this privacy policy, please contact us at damandeeps107@gmail.com or +91 7626991735.</p>
+        <div class="legal-header">
+          <span class="legal-badge">PRIVACY POLICY • WEB WALE STUDIO</span>
+          <h2>Privacy Policy</h2>
+          <div class="legal-meta-row">
+            <span><strong>Effective Date:</strong> October 2026</span>
+            <span><strong>Last Updated:</strong> October 4, 2026</span>
+            <span><strong>Status:</strong> Legally Binding</span>
+          </div>
+        </div>
+
+        <div class="legal-section">
+          <h3>1. Introduction &amp; Studio Scope</h3>
+          <p>
+            Welcome to Web Wale (accessible at <a href="https://webwale.in" target="_blank" rel="noopener">webwale.in</a>, referred to as <strong>"Web Wale"</strong>, <strong>"we"</strong>, <strong>"us"</strong>, or <strong>"our"</strong>). We are an independent digital craftsmanship studio based in Punjab, India, dedicated to designing and engineering bespoke web applications, high-converting e-commerce experiences, and editorial brand portfolios.
+          </p>
+          <p>
+            We respect your fundamental right to privacy and are committed to maintaining radical transparency in how personal and commercial data is collected, processed, and safeguarded. This Privacy Policy details our practices in compliance with international data privacy standards, including the <em>Digital Personal Data Protection Act (DPDP Act 2023, India)</em> and the <em>General Data Protection Regulation (GDPR, Regulation (EU) 2016/679)</em>.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h3>2. Information We Collect</h3>
+          <p>We only collect data that is strictly necessary to communicate with you, evaluate your project requirements, engineer your digital products, and provide post-launch support:</p>
+          <ul class="legal-list">
+            <li><strong>Contact &amp; Identification Data:</strong> Full name, professional email address, WhatsApp/telephone number, company/brand name, existing website URLs, and geographic business address submitted via our contact forms or consultations.</li>
+            <li><strong>Project Assets &amp; Specifications:</strong> Brand assets (vector logos, brand books, typography licenses, commercial imagery), copywriting drafts, product catalogs, customer journey outlines, and technical architecture specifications provided during discovery and development.</li>
+            <li><strong>Technical Infrastructure Data:</strong> Domain registrar credentials, DNS settings, and cloud deployment tokens provided voluntarily by you to facilitate live website cutover, SSL certification, and Google Search Console indexing.</li>
+            <li><strong>Automated Usage Data:</strong> Anonymized server logs, browser type and version, device viewport dimensions, operating system, approximate geographic city/region, referring URL, and page interaction timestamps gathered to optimize website speed and responsiveness.</li>
+          </ul>
+        </div>
+
+        <div class="legal-section">
+          <h3>3. How We Use Your Information</h3>
+          <p>We process your data strictly under fair and lawful grounds for the following specified business purposes:</p>
+          <ul class="legal-list">
+            <li><strong>Project Communication:</strong> To schedule discovery calls, deliver interactive Figma prototypes, share live staging links, and provide milestone status updates.</li>
+            <li><strong>Product Engineering &amp; Delivery:</strong> To construct, test, and deploy custom Next.js/HTML5 frontends, configure edge caching, optimize Core Web Vitals, and index your website on search engines.</li>
+            <li><strong>Financial Invoicing:</strong> To issue transparent flat-rate proposals, milestone payment invoices, and payment receipts.</li>
+            <li><strong>Ongoing Care &amp; Support:</strong> To deliver 24/7 uptime monitoring, automated backups, and monthly performance reports for clients enrolled in our Care &amp; Growth plans.</li>
+          </ul>
+        </div>
+
+        <div class="legal-section">
+          <h3>4. Radical Zero-Sale Data Guarantee</h3>
+          <div class="legal-highlight-box">
+            <p><strong>Our Absolute Commitment:</strong> We do not sell, rent, monetize, or trade your personal information, client customer databases, or commercial trade secrets to third-party data brokers, advertising networks, or lead generators under any circumstances.</p>
+          </div>
+          <p>
+            All non-public business strategies, customer metrics, unpublished designs, and project documentation shared with Web Wale remain strictly proprietary and confidential between your brand and our engineering team.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h3>5. Third-Party Infrastructure Partners</h3>
+          <p>To deliver modern, edge-rendered, sub-second web experiences, we interface with industry-leading infrastructure partners who adhere to rigorous international security certifications (SOC 2 Type II, ISO 27001):</p>
+          <ul class="legal-list">
+            <li><strong>Cloud Hosting &amp; Edge Networks:</strong> Vercel Inc. and Cloudflare Inc. for global CDN asset delivery and DDoS mitigation.</li>
+            <li><strong>Code Repositories:</strong> GitHub Inc. for version-controlled, encrypted source code hosting.</li>
+            <li><strong>Payment Gateways:</strong> Stripe Inc. and Razorpay for PCI-DSS Level 1 compliant milestone payments. (Web Wale never accesses or stores raw credit card numbers).</li>
+            <li><strong>Communication Channels:</strong> Google Workspace and WhatsApp Business API for direct client dialogue.</li>
+          </ul>
+        </div>
+
+        <div class="legal-section">
+          <h3>6. Cookies &amp; Tracking Technologies</h3>
+          <p>
+            Web Wale uses strictly necessary technical cookies and lightweight, privacy-friendly analytics to maintain session stability and measure anonymous visitor traffic. We do not use intrusive cross-site tracking pixels or invasive behavioural advertising cookies. You retain full control to disable or block cookies at any time via your browser preferences without losing access to our website.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h3>7. Data Security &amp; Retention Policies</h3>
+          <p>
+            We implement comprehensive technical and organizational safeguards, including SSL/TLS 256-bit encryption in transit, strict multi-factor authentication (MFA) across all studio tooling, and encrypted code repositories.
+          </p>
+          <p>
+            We retain personal data only for as long as necessary to fulfill the project scope, provide warranty and ongoing care, or satisfy statutory tax and legal requirements. Upon formal request, all client-identifying data and project staging archives will be permanently purged within 30 business days.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h3>8. Your Statutory Privacy Rights</h3>
+          <p>Regardless of your geographic location, Web Wale guarantees you full control over your personal data:</p>
+          <ul class="legal-list">
+            <li><strong>Right to Access:</strong> You may request an itemized copy of the personal data we maintain about you.</li>
+            <li><strong>Right to Rectification:</strong> You may request immediate correction of inaccurate or outdated information.</li>
+            <li><strong>Right to Erasure ("Right to Be Forgotten"):</strong> You may request complete deletion of your records from our systems.</li>
+            <li><strong>Right to Data Portability:</strong> You may request your project assets and codebase delivered in standard, readable formats.</li>
+            <li><strong>Right to Withdraw Consent:</strong> You may withdraw permission for any optional communication at any moment.</li>
+          </ul>
+        </div>
+
+        <div class="legal-section">
+          <h3>9. Policy Updates</h3>
+          <p>
+            We may update this Privacy Policy periodically to reflect technological advancements, evolving studio services, or statutory regulatory updates. Any modifications will be posted directly to this URL with an updated revision date.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h3>10. Contact &amp; Grievance Officer</h3>
+          <p>For any questions regarding this Privacy Policy, to exercise your statutory rights, or to submit a data query, please contact our team directly:</p>
+          <div class="legal-contact-card">
+            <h4>Web Wale Studio — Legal &amp; Data Privacy</h4>
+            <p><strong>Lead Engineer &amp; Founder:</strong> Damandeep Singh</p>
+            <p><strong>Direct Email:</strong> <a href="mailto:damandeeps107@gmail.com">damandeeps107@gmail.com</a></p>
+            <p><strong>Phone / WhatsApp:</strong> <a href="tel:+917626991735">+91 7626991735</a></p>
+            <p><strong>Official Channels:</strong> Instagram: <a href="https://instagram.com/webwale.in" target="_blank" rel="noopener">@webwale.in</a> • Studio: <a href="https://webwale.in" target="_blank" rel="noopener">webwale.in</a></p>
+            <p><strong>Response SLA:</strong> Inquiries are addressed within 24 to 48 business hours.</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 
   <!-- FULL ABOUT WEB WALE MODAL (Genuine & Emotional Story) -->
-  <div id="aboutModal" class="modal-overlay project-modal-overlay" onclick="closeModalOnOverlay(event, 'aboutModal')">
-    <div class="project-modal-container">
+  <div id="aboutModal" class="modal-overlay project-modal-overlay" data-lenis-prevent onclick="closeModalOnOverlay(event, 'aboutModal')">
+    <div class="project-modal-container" data-lenis-prevent>
       <button class="project-modal-close" onclick="closeModal('aboutModal')" aria-label="Close About Modal">✕</button>
 
       <div class="pm-header">
@@ -1128,8 +1231,8 @@
   </div>
 
   <!-- FULL FREQUENTLY ASKED QUESTIONS MODAL (Genuine Q&A) -->
-  <div id="faqModal" class="modal-overlay project-modal-overlay" onclick="closeModalOnOverlay(event, 'faqModal')">
-    <div class="project-modal-container">
+  <div id="faqModal" class="modal-overlay project-modal-overlay" data-lenis-prevent onclick="closeModalOnOverlay(event, 'faqModal')">
+    <div class="project-modal-container" data-lenis-prevent>
       <button class="project-modal-close" onclick="closeModal('faqModal')" aria-label="Close FAQ Modal">✕</button>
 
       <div class="pm-header">
@@ -1183,8 +1286,8 @@
   </div>
 
   <!-- FULL CRAFTSMANSHIP & REFERENCE PHILOSOPHY MODAL -->
-  <div id="referenceModal" class="modal-overlay project-modal-overlay" onclick="closeModalOnOverlay(event, 'referenceModal')">
-    <div class="project-modal-container">
+  <div id="referenceModal" class="modal-overlay project-modal-overlay" data-lenis-prevent onclick="closeModalOnOverlay(event, 'referenceModal')">
+    <div class="project-modal-container" data-lenis-prevent>
       <button class="project-modal-close" onclick="closeModal('referenceModal')" aria-label="Close Reference Modal">✕</button>
 
       <div class="pm-header">
@@ -1239,24 +1342,156 @@
   </div>
 
   <!-- TERMS OF SERVICE MODAL -->
-  <div id="termsModal" class="modal-overlay" onclick="closeModalOnOverlay(event, 'termsModal')">
-    <div class="modal-content">
-      <button class="modal-close" onclick="closeModal('termsModal')">×</button>
+  <div id="termsModal" class="modal-overlay" data-lenis-prevent onclick="closeModalOnOverlay(event, 'termsModal')">
+    <div class="modal-content" data-lenis-prevent>
+      <button class="modal-close" onclick="closeModal('termsModal')" aria-label="Close Terms of Service">×</button>
       <div class="modal-body">
-        <h2>Terms of Service</h2>
-        <p>Last updated: October 2026</p>
-        <p>Welcome to Web Wale. By accessing or using our website and services, you agree to comply with and be bound by these terms.</p>
-        <h3>Services &amp; Intellectual Property</h3>
-        <p>All custom design and code assets created by Web Wale are delivered according to project agreements. Clients receive full rights upon final payment.</p>
-        <h3>Direct Contact</h3>
-        <p>For custom quotes, support, or inquiries, reach out directly to damandeeps107@gmail.com or via Instagram @webwale.in.</p>
+        <div class="legal-header">
+          <span class="legal-badge">TERMS OF SERVICE • WEB WALE STUDIO</span>
+          <h2>Terms of Service</h2>
+          <div class="legal-meta-row">
+            <span><strong>Effective Date:</strong> October 2026</span>
+            <span><strong>Last Updated:</strong> October 4, 2026</span>
+            <span><strong>Jurisdiction:</strong> India</span>
+          </div>
+        </div>
+
+        <div class="legal-section">
+          <h3>1. Agreement to Terms</h3>
+          <p>
+            These Terms of Service (<strong>"Terms"</strong>) constitute a legally binding agreement between you (whether individually or on behalf of an entity, <strong>"Client"</strong>, <strong>"you"</strong>, or <strong>"your"</strong>) and Web Wale Studio (operating via <a href="https://webwale.in" target="_blank" rel="noopener">webwale.in</a>, <strong>"Web Wale"</strong>, <strong>"we"</strong>, <strong>"us"</strong>, or <strong>"our"</strong>).
+          </p>
+          <p>
+            By browsing our website, initiating a consultation, engaging our design or software engineering services, or executing a project proposal, you acknowledge that you have read, understood, and agree to be bound by all of these Terms in full.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h3>2. Studio Services &amp; Scope of Work</h3>
+          <p>Web Wale provides bespoke digital design, software development, and growth infrastructure services, including:</p>
+          <ul class="legal-list">
+            <li><strong>Bespoke UI/UX Design:</strong> Custom high-fidelity Figma mockups, design systems, and responsive layouts crafted from scratch without pre-bought templates.</li>
+            <li><strong>High-Performance Engineering:</strong> Custom Next.js, HTML5, lightweight modern CSS, GSAP ScrollTrigger, and 60fps Lenis smooth scroll web applications.</li>
+            <li><strong>E-Commerce &amp; Systems Architecture:</strong> Headless storefronts, custom checkout flows, inventory API integrations, and secure payment processing.</li>
+            <li><strong>Technical On-Page SEO:</strong> Core Web Vitals 99+ speed audits, Schema.org JSON-LD structured data, XML sitemaps, and Google Search Console indexing.</li>
+            <li><strong>Care &amp; Growth Maintenance:</strong> 24/7 uptime monitoring, cloud edge backups, security patching, and ongoing performance enhancements.</li>
+          </ul>
+          <p>Each engagement is governed by an agreed written Project Proposal outlining specific deliverables, milestone deadlines, and project scope.</p>
+        </div>
+
+        <div class="legal-section">
+          <h3>3. Transparent Pricing &amp; Milestone Payment Terms</h3>
+          <div class="legal-highlight-box">
+            <p><strong>Zero Surprise Fees Guarantee:</strong> All project pricing provided by Web Wale is flat-rate and upfront. There are no hidden administrative charges, unexpected handoff fees, or unilateral price increases.</p>
+          </div>
+          <p>Unless an alternative milestone schedule is explicitly defined in your written Project Agreement, our standard payment terms operate on a two-stage milestone structure:</p>
+          <ul class="legal-list">
+            <li><strong>50% Project Initiation Retainer:</strong> Due upon contract execution prior to commencing discovery, visual moodboards, and wireframing.</li>
+            <li><strong>50% Final Milestone:</strong> Due upon final staging preview approval, prior to production domain DNS live launch and GitHub source repository transfer.</li>
+          </ul>
+          <p>Invoices are payable within seven (7) calendar days of receipt via direct bank wire transfer, UPI, Stripe, or Razorpay. Late payments may temporarily postpone scheduled deployment dates.</p>
+        </div>
+
+        <div class="legal-section">
+          <h3>4. 100% Intellectual Property &amp; Source Code Ownership</h3>
+          <div class="legal-highlight-box">
+            <p><strong>Full Client Ownership &amp; Zero Lock-In:</strong> Upon receipt of full and final payment, 100% of all intellectual property rights—including all custom design files, Figma layouts, HTML/CSS/JavaScript source code, Next.js components, graphics, and written assets created specifically for your project—transfer irrevocably to you.</p>
+          </div>
+          <p>
+            You own your code, your GitHub repository, your domain, and your hosting credentials outright. You are never locked into proprietary website builders, closed systems, or forced hosting tiers.
+          </p>
+          <p>
+            <em>Third-Party Open-Source Software:</em> Standard open-source libraries and frameworks incorporated into the build (such as React, Next.js, GSAP, and Lenis) remain licensed under their respective open-source licenses (MIT, Apache 2.0).
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h3>5. Client Responsibilities &amp; Feedback Deadlines</h3>
+          <p>To enable Web Wale to meet our guaranteed 2 to 4-week delivery schedules, the Client agrees to:</p>
+          <ul class="legal-list">
+            <li>Provide required brand materials (high-res logos, brand color palettes, fonts, product photography, text content) in a timely manner.</li>
+            <li>Consolidate and deliver revision feedback on interactive staging previews within three (3) business days of submission.</li>
+            <li>Provide timely DNS / hosting credentials necessary for production launch cutover.</li>
+          </ul>
+        </div>
+
+        <div class="legal-section">
+          <h3>6. Revisions &amp; Scope Change Order Policy</h3>
+          <p>
+            Every Web Wale package includes dedicated, structured revision cycles (typically two to three structured feedback rounds during the design phase, and one comprehensive staging refinement round prior to live deployment).
+          </p>
+          <p>
+            Requested modifications that fall within the original Project Proposal are completed swiftly without additional charge. Any brand-new features, architectural shifts, or additional page layouts requested after project kickoff will be quoted transparently as a separate, written Change Order prior to implementation.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h3>7. 30-Day Post-Launch Warranty &amp; Performance Guarantee</h3>
+          <p>
+            <strong>30-Day Defect Warranty:</strong> Every custom website engineered by Web Wale comes with thirty (30) calendar days of complimentary post-launch warranty support. Any bugs, functional flaws, broken links, or cross-browser formatting anomalies directly attributable to our code will be resolved promptly at zero cost.
+          </p>
+          <p>
+            <strong>Performance Assurance:</strong> We engineer every website to achieve 90+ to 99+ Core Web Vitals speed scores under modern edge cloud distribution (Vercel / Cloudflare).
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h3>8. Studio Showcase &amp; Portfolio Rights</h3>
+          <p>
+            Web Wale takes immense pride in our craftsmanship. Unless a formal Mutual Non-Disclosure Agreement (NDA) is executed prior to project kickoff, Web Wale reserves the professional right to showcase completed visual designs, case study screenshots, and live website links in our portfolio, design awards, and studio social channels (<a href="https://instagram.com/webwale.in" target="_blank" rel="noopener">@webwale.in</a>).
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h3>9. Third-Party Services &amp; Subscriptions</h3>
+          <p>
+            The Client is responsible for maintaining and funding any third-party software subscriptions required for their business operations (e.g., custom domain name registration fees, cloud hosting plans, Google Workspace accounts, or payment processor transaction commissions). Web Wale will advise you on the most cost-effective and reliable infrastructure options.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h3>10. Limitation of Liability</h3>
+          <p>
+            To the maximum extent permitted by applicable law, in no event shall Web Wale, its founder, employees, or contractors be liable for any indirect, incidental, special, consequential, or punitive damages, including loss of profits, data loss, business interruption, or third-party platform downtime.
+          </p>
+          <p>
+            Our total cumulative liability arising out of or related to any project engagement is strictly capped at the total fees actually paid by the Client to Web Wale for the specific project giving rise to the claim.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h3>11. Project Termination &amp; Cancellation</h3>
+          <p>
+            Either party may terminate a project engagement upon seven (7) calendar days' written notice. In the event of Client cancellation prior to completion, the initiation retainer is retained to compensate studio time and materials incurred, and Web Wale will deliver all completed source files and assets created up to the cancellation date upon pro-rata payment.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h3>12. Governing Law &amp; Dispute Resolution</h3>
+          <p>
+            These Terms and any contractual relationships between the parties shall be governed by and construed in accordance with the laws of India. Both parties agree to resolve any dispute or claim first through amicable informal discussions. In the event of unresolved disputes, the competent courts located in Punjab, India, shall have exclusive jurisdiction.
+          </p>
+        </div>
+
+        <div class="legal-section">
+          <h3>13. Official Inquiries &amp; Notice</h3>
+          <p>For contract notices, custom proposal inquiries, or enterprise NDA agreements, please reach out directly:</p>
+          <div class="legal-contact-card">
+            <h4>Web Wale Studio — Legal &amp; Client Contracts</h4>
+            <p><strong>Director &amp; Lead Engineer:</strong> Damandeep Singh</p>
+            <p><strong>Email:</strong> <a href="mailto:damandeeps107@gmail.com">damandeeps107@gmail.com</a></p>
+            <p><strong>WhatsApp / Mobile:</strong> <a href="tel:+917626991735">+91 7626991735</a></p>
+            <p><strong>Website:</strong> <a href="https://webwale.in" target="_blank" rel="noopener">https://webwale.in</a></p>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 
   <!-- FULL SERVICE & FEATURE DETAIL MODAL (Glassmorphism UI) -->
-  <div id="serviceDetailModal" class="modal-overlay project-modal-overlay" onclick="closeModalOnOverlay(event, 'serviceDetailModal')">
-    <div class="project-modal-container">
+  <div id="serviceDetailModal" class="modal-overlay project-modal-overlay" data-lenis-prevent onclick="closeModalOnOverlay(event, 'serviceDetailModal')">
+    <div class="project-modal-container" data-lenis-prevent>
       <button class="project-modal-close" onclick="closeModal('serviceDetailModal')" aria-label="Close Service Detail">✕</button>
 
       <div class="pm-header">
@@ -1323,8 +1558,8 @@
   </div>
 
   <!-- FULL PROJECT DETAIL CASE STUDY MODAL (Glassmorphism & Morphism UI) -->
-  <div id="projectDetailModal" class="modal-overlay project-modal-overlay" onclick="closeModalOnOverlay(event, 'projectDetailModal')">
-    <div class="project-modal-container">
+  <div id="projectDetailModal" class="modal-overlay project-modal-overlay" data-lenis-prevent onclick="closeModalOnOverlay(event, 'projectDetailModal')">
+    <div class="project-modal-container" data-lenis-prevent>
       <button class="project-modal-close" onclick="closeModal('projectDetailModal')" aria-label="Close Case Study">✕</button>
 
       <div class="pm-header">
